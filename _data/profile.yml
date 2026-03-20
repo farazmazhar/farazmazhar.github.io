@@ -1,0 +1,113 @@
+name: "Faraz Mazhar"
+title: "Faraz Mazhar | Managing Consultant - Data Engineering"
+role: "Managing Consultant - Data Engineering"
+
+hero:
+  title_line_1: "Building Scalable"
+  title_line_2: "Data Ecosystems"
+  highlight: "for 6+ Years."
+  description: "With more than half a decade of professional experience, I've been designing, developing, and delivering Data Engineering solutions ranging from creating standalone ETL scripts to complex frameworks on clouds like AWS and Azure. Writing clean, reusable, and well-documented code one project at a time."
+  resume_url: "assets/Resume_Faraz-Mazhar.pdf"
+  github_url: "https://github.com/farazmazhar"
+
+experience:
+  description: "A timeline of engineering complex data architectures and leading technical transformations."
+  jobs:
+    - year: "March 2021 — PRESENT"
+      title: "Managing Consultant"
+      company: "Systems Limited - Lahore, Pakistan"
+      current: true
+      bullets:
+        - "PartnerLinq - Visibility - Data Engineering Lead"
+        - "Creator of the Data Framework (Python, Pandas, PySpark, Delta Lake) capable of acquiring, ingesting, and executing analytical processes."
+        - "Responsible for end-to-end solutioning and design, innovation, and optimizations."
+        - "Designed and data modeled the metastore, data/delta lake, Canonical Models, and SQL Server datastore."
+        - "Designed and developed REST and GraphQL APIs for Semantic Integration, allowing outside applications to interact with internal systems."
+        - "Designed and orchestrated data pipelines using Databricks Workflows, Airflow, and Azure Data Factory."
+        - "Developed a query builder to construct SQL queries for a variety of dialects based on a grid model."
+    - year: "August 2018 — March 2021"
+      title: "Senior Software Engineer"
+      company: "Northbay Solutions - Lahore, Pakistan"
+      current: false
+      bullets:
+        - "Developed ETL scripts using PySpark and created a comprehensive Data Lake framework."
+        - "Migrated SAS code into PySpark code and developed dependency packages for AWS Glue ETL jobs."
+        - "Developed a service responsible for triggering processes automatically when files are placed on S3 utilizing AWS Lambda and Cloudwatch."
+        - "Created dynamically parallel State Machines and frameworks to automate cloud migration and infrastructure deployments (Cloudformation)."
+        - "Created API using API Gateway for Kinesis Data Streams and built tools for DynamoDB access."
+    - year: "2018"
+      title: "Intern"
+      company: "Mentor Graphics - Lahore, Pakistan"
+      current: false
+      bullets:
+        - "Interned as QA for the Nucleus Real-time Operating System utilizing C/C++, Python, and Bash."
+
+skills:
+  description: "Validated Expertise"
+  items:
+    - name: "Python & Bash"
+      icon: "data_object"
+    - name: "SQL & NoSQL"
+      icon: "database"
+    - name: "Apache Spark & Databricks"
+      icon: "hub"
+      span_cols: true
+    - name: "AWS & Azure Ecosystems"
+      icon: "cloud"
+    - name: "Airflow & Orchestration"
+      icon: "account_tree"
+    - name: "Delta Lake / Data Lakes"
+      icon: "ac_unit"
+      span_cols: true
+    - name: "GraphQL & REST APIs"
+      icon: "transform"
+    - name: "Infrastructure as Code"
+      icon: "grid_view"
+    - name: "Kafka & Big Data Engineering"
+      icon: "dynamic_feed"
+      span_cols: true
+
+projects:
+  description: "Flagship projects that I've created from the scratch  ."
+  items:
+    - category: "Data Engineering"
+      title: "PartnerLinq - Data Framework"
+      icon: "dataset"
+      description: "Built a modular data framework using Python, Pandas, PySpark, and Delta Lake. This framework allows creation of data pipeline for both Data Engineering and Machine Learning use-cases via simple orchestration. The modules are independent and can be used in any order. It can use Domain-Specific Language (DSL) for curation of the data into the Canonical Models as well as for building analytical queries, using Semantic Model, which allows infinite flexibility and scalability regadless of the number of inputs and outputs as well as the complexity of the transformations. Complex data pipelines can be created without having to do any deployment."
+      tags:
+        - "Python"
+        - "PySpark"
+        - "Delta Lake"
+        - "Pandas"
+        - "Azure Databricks"
+      url: "#"
+      mt_class: "mt-0"
+    - category: "API"
+      title: "PartnerLinq - Visibility - Integration API"
+      icon: "api"
+      description: "This API, based on Django Rest Framework, is responsible for allowing other systems to use the Data Framework for their own data engineering and machine learning needs. It can keep track of the statuses of the jobs and can act smartly route jobs between multiple clusters depending on the requirements."
+      tags:
+        - "Django Rest Framework"
+        - "Azure Web Apps"
+      url: "#"
+      mt_class: "mt-0 lg:mt-16"
+    - category: "API"
+      title: "PartnerLinq - Visibility - Semantic API"
+      icon: "api"
+      description: "This API, based on Django Rest Framework, for serving the metadata from the metastore. It exposes a GraphQL endpoint for the frontend to consume so that it can build the views dynamically based on the metadata. It also has a REST endpoint for backward compatibility as well for some complex scenaerios."
+      tags:
+        - "Django Rest Framework"
+        - "Strawberry-Django"
+        - "Azure Web Apps"
+      url: "#"
+      mt_class: "mt-0 lg:mt-16"
+
+contact:
+  availability: "Currently open to consulting opportunities or senior engineering leadership roles focused on high-scale data infrastructure."
+  email: "csfarazmazhar@gmail.com"
+  github_url: "https://github.com/farazmazhar"
+  linkedin_url: "https://www.linkedin.com/in/faraz-mazhar/"
+
+footer:
+  brand: "FARAZ MAZHAR"
+  copyright: "© 2026 FARAZ MAZHAR | DATA ENGINEER"
