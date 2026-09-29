@@ -1,0 +1,6 @@
+exclude:
+  - AGENTS.md
+  - README.md
+  - instructions.md
+  - Gemfile
+  - Gemfile.lock
