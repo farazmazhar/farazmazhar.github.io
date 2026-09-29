@@ -7,7 +7,7 @@ hero:
   title_line_2: "Data Ecosystems"
   highlight: "for 8+ Years."
   description: "Data engineer with 8+ years building scalable data platforms on AWS and Azure. Architected and led development of a modular data framework powering enterprise analytical and ML pipelines. Owns the full lifecycle from data modeling and lakehouse design through API integration, orchestration, and production deployment."
-  resume_url: "assets/Resume_Faraz-Mazhar.pdf"
+  resume_url: "assets/Resume_Faraz_Mazhar.pdf"
   github_url: "https://github.com/farazmazhar"
 
 experience:
@@ -48,32 +48,67 @@ skills:
   items:
     - name: "Python & Bash"
       icon: "code_blocks"
+      category: "Languages & Frameworks"
     - name: "SQL & NoSQL"
       icon: "database"
-    - name: "Apache Spark & Databricks"
-      icon: "bolt"
-    - name: "AWS & Azure Ecosystems"
-      icon: "cloud"
-    - name: "Airflow & Orchestration"
-      icon: "account_tree"
-    - name: "Delta Lake / Data Lakes"
-      icon: "dataset"
-    - name: "GraphQL & REST APIs"
-      icon: "api"
+      category: "Languages & Frameworks"
     - name: "Django & Flask"
       icon: "web"
-    - name: "Infrastructure as Code"
-      icon: "deployed_code"
+      category: "Languages & Frameworks"
+    - name: "GraphQL & REST APIs"
+      icon: "api"
+      category: "Languages & Frameworks"
+    - name: "Apache Spark & Databricks"
+      icon: "bolt"
+      category: "Data & Processing"
+    - name: "Delta Lake / Data Lakes"
+      icon: "dataset"
+      category: "Data & Processing"
     - name: "Kafka & Big Data Engineering"
       icon: "stream"
-    - name: "Docker & Linux"
-      icon: "terminal"
+      category: "Data & Processing"
     - name: "Data Modeling & Architecture"
       icon: "schema"
+      category: "Data & Processing"
+    - name: "AWS & Azure Ecosystems"
+      icon: "cloud"
+      category: "Cloud & Infrastructure"
+    - name: "Airflow & Orchestration"
+      icon: "account_tree"
+      category: "Cloud & Infrastructure"
+    - name: "Infrastructure as Code"
+      icon: "deployed_code"
+      category: "Cloud & Infrastructure"
+    - name: "Docker & Linux"
+      icon: "terminal"
+      category: "Cloud & Infrastructure"
 
 projects:
   description: "Flagship projects that I've created from scratch."
   items:
+    - category: "Agentic AI"
+      title: "Agentic Framework"
+      icon: "smart_toy"
+      description: |
+        Architected and built a metadata-driven agent framework in which each agent's bespoke logic is isolated to its own module while cross-cutting behavior is driven by metadata — onboarding a new agent is a focused implementation plus configuration, with the bulk of the platform reused across the fleet.
+
+        ▸ Owned the full agent lifecycle from boot and registration through invocation, giving the platform end-to-end control over how agents are configured, executed, and observed at runtime.
+
+        ▸ Built the framework's flagship capability: a dynamic orchestrator that composes workflows at runtime from the capabilities exposed by registered agents, solving problems for which no pre-defined workflow exists.
+
+        ▸ Designed the capability and metadata model that lets agents advertise what they can do — the basis for discovery, composition, and reuse across the agent fleet.
+      subindustry:
+        - "Agent Orchestration"
+        - "Framework"
+        - "Multi-Agent"
+      tags:
+        - "Orchestration"
+        - "Metadata-Driven"
+        - "Dynamic Workflows"
+        - "Capability Model"
+        - "Platform"
+      url: "#"
+      mt_class: "mt-0"
     - category: "Data Engineering"
       title: "PartnerLinq - Data Framework"
       icon: "dataset"
@@ -92,7 +127,7 @@ projects:
         - "Kafka"
         - "MLflow"
       url: "#"
-      mt_class: "mt-0"
+      mt_class: "mt-0 lg:mt-16"
     - category: "System Integration"
       title: "PartnerLinq - Visibility - Integration API"
       icon: "api"
@@ -111,7 +146,7 @@ projects:
         - "Kafka"
         - "SQL Server"
       url: "#"
-      mt_class: "mt-0 lg:mt-16"
+      mt_class: "mt-0"
     - category: "Metadata API"
       title: "PartnerLinq - Visibility - Metadata API"
       icon: "grid_view"
@@ -126,7 +161,7 @@ projects:
         - "Django REST Framework"
         - "SQL Server"
       url: "#"
-      mt_class: "mt-0"
+      mt_class: "mt-0 lg:mt-16"
     - category: "Analytics Query Engine"
       title: "PartnerLinq - Visibility - Query Builder"
       icon: "table_chart"
@@ -141,7 +176,7 @@ projects:
         - "PyPika"
         - "SQL Server"
       url: "#"
-      mt_class: "mt-0 lg:mt-16"
+      mt_class: "mt-0"
 
 contact:
   availability: "Currently open to consulting opportunities or senior engineering leadership roles focused on high-scale data infrastructure."
@@ -167,7 +202,7 @@ certifications:
     - name: "AWS Certified Developer — Associate"
       issuer: "Amazon Web Services"
       year: "2018 — 2021"
-      badge_url: "https://images.credly.com/size/680x680/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png"
+      badge_url: "assets/logos/aws-dev-associate.png"
       expired: true
 
 footer:

@@ -1,51 +1,105 @@
-# Portfolio Maintenance Instructions
+# Portfolio Maintenance Guide
 
-This document is a quick-start guide for easily updating your live website content without needing to dig into raw HTML files or Tailwind CSS configurations.
+A quick-reference for editing your live portfolio without touching HTML or CSS. For the full architecture breakdown, see [AGENTS.md](AGENTS.md).
 
-## How to Edit Your Resume/Profile Details
+## Where Everything Lives
 
-Your site separates its content from its design using Jekyll. You do not need to know HTML to add a new project or change your resume link!
+```
+_data/profile.yml   ←  edit this file for all content changes
+index.html          ←  template (rarely touched)
+assets/logos/       ←  company logos and certification badges
+assets/             ←  resume PDF, favicon, fonts
+```
 
-All of the website's text and links live neatly organized inside **`_data/profile.yml`**.
+## Editing Sections
 
-1. **Open `_data/profile.yml`** in any text editor.
-2. Locate the section you want to change:
-   - **hero:** This is the top section introducing you and containing the headline.
-   - **experience:** Contains a timeline list of your past roles. To add a new job, simply copy any block starting from `- year:` inside the file and paste it at the top or bottom of the list, modifying the nested `title`, `company`, etc.
-   - **skills:** Modifies your core tech stack blocks. Note: The icons correspond to [Google Material Symbols](https://fonts.google.com/icons). You can browse that site to change icons!
-   - **projects:** Changes the Flagship Projects list.
-   - **contact & footer:** Configures your social links, email address, and the copyright tagline.
-3. Save the file.
+### Hero
+```yaml
+hero:
+  title_line_1: "Building Scalable"
+  title_line_2: "Data Ecosystems"
+  highlight: "for 8+ Years."
+  description: "Data engineer with 8+ years..."
+  resume_url: "assets/Resume_Faraz-Mazhar.pdf"
+  github_url: "https://github.com/farazmazhar"
+```
 
----
+### Experience
+Add a new job by copying an existing block under `jobs:` and updating the fields:
+```yaml
+- year: "Jan 2024 — PRESENT"
+  title: "Staff Engineer"
+  company: "Company Name - City, Country"
+  company_logo: "assets/logos/company.svg"
+  current: true
+  bullets:
+    - "Led migration of..."
+    - "Designed and built..."
+```
 
-## 📄 Uploading a New Resume PDF
+### Skills
+Icons are [Google Material Symbols](https://fonts.google.com/icons) names. Browse, pick one, paste it:
+```yaml
+skills:
+  items:
+    - name: "Kubernetes"
+      icon: "deployed_code"
+```
 
-When you update your physical resume in the future:
+### Projects
+Tags are split into two rows: `subindustry` (blue outlined) and `tags` (gray solid tech stack). Use `**bold**` in descriptions for emphasis.
+```yaml
+projects:
+  items:
+    - category: "Data Engineering"
+      title: "Project Name"
+      icon: "dataset"
+      description: "A **metadata-driven** pipeline..."
+      subindustry:
+        - "Lakehouse"
+        - "MLOps"
+      tags:
+        - "Python"
+        - "Spark"
+      mt_class: "mt-0"
+```
 
-1. Save your newest resume PDF into the **`assets/`** folder of this repository (for instance, `Resume_2026.pdf`).
-2. Open `_data/profile.yml`.
-3. Locate `resume_url:` under the `hero` section and change it to point to your new file path exactly like this:
-   ```yaml
-   hero:
-     resume_url: "assets/Resume_2026.pdf"
-   ```
+### Certifications
+Set `expired: true` to auto-grayscale the badge and dim the card:
+```yaml
+certifications:
+  items:
+    - name: "AWS Certified Developer"
+      issuer: "Amazon Web Services"
+      year: "2018 — 2021"
+      badge_url: "assets/logos/aws-dev-associate.png"
+      expired: true
+```
 
----
+### Contact & Footer
+```yaml
+contact:
+  email: "you@email.com"
+  github_url: "https://github.com/yourusername"
+  linkedin_url: "https://linkedin.com/in/yourusername"
+```
 
-## 🚀 Deploying Your Changes to GitHub Pages
+## Updating Your Resume PDF
 
-Once you have modified and saved the `profile.yml` file, publishing the changes to the internet requires just these three Git commands in your terminal:
+1. Save the new PDF to `assets/`
+2. Update `resume_url:` under `hero` in `profile.yml`
+
+## Updating Cert Badges
+
+1. Place the badge image in `assets/logos/`
+2. Point `badge_url` to the local path (e.g. `"assets/logos/az-900.svg"`)
+
+## Deploying
 
 ```bash
-# 1. Stage the files you changed
 git add _data/profile.yml assets/
-
-# 2. Package your changes with a short descriptive message
-git commit -m "Updated experience section and resume PDF"
-
-# 3. Securely upload the update to GitHub
+git commit -m "Updated portfolio"
 git push
 ```
 
-Within a minute or two of the push completing, GitHub will automatically re-render your Jekyll site entirely in the cloud and instantly display the updates live at `https://farazmazhar.github.io`!
+GitHub Pages rebuilds the site automatically within minutes.

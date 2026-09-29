@@ -1,0 +1,340 @@
+---
+---
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>{{ site.data.profile.title }}</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#c1d8e4",
+              "surface-dim": "#0e0e0e",
+              "inverse-primary": "#005a9e",
+              "error-dim": "#bb5551",
+              "on-surface-variant": "#acabaa",
+              "secondary": "#8ba1ac",
+              "on-secondary-fixed-variant": "#495f69",
+              "tertiary-dim": "#ccd0ef",
+              "surface-container-lowest": "#000000",
+              "background": "#0e0e0e",
+              "primary": "#007ACC",
+              "surface-container": "#191a1a",
+              "surface-tint": "#007ACC",
+              "surface": "#0e0e0e",
+              "outline-variant": "#484848",
+              "surface-variant": "#252626",
+              "secondary-container": "#293e48",
+              "primary-fixed-dim": "#4da3ff",
+              "primary-dim": "#3395ff",
+              "error": "#ee7d77",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#b3d9ff",
+              "outline": "#767575",
+              "inverse-on-surface": "#565555",
+              "on-tertiary-container": "#4a4e69",
+              "on-background": "#e7e5e5",
+              "on-primary-fixed-variant": "#005a9e",
+              "surface-container-high": "#1f2020",
+              "on-secondary-fixed": "#2d424c",
+              "surface-container-highest": "#252626",
+              "surface-bright": "#2b2c2c",
+              "on-tertiary-fixed-variant": "#545873",
+              "tertiary-fixed": "#dbdefe",
+              "secondary-fixed": "#cfe6f2",
+              "on-primary-fixed": "#002d4d",
+              "on-error-container": "#ff9993",
+              "secondary-dim": "#8ba1ac",
+              "on-error": "#490106",
+              "on-secondary-container": "#acc3ce",
+              "tertiary-fixed-dim": "#ccd0ef",
+              "on-surface": "#e7e5e5",
+              "tertiary": "#ececff",
+              "surface-container-low": "#131313",
+              "on-tertiary": "#535771",
+              "primary-fixed": "#99ccff",
+              "primary-container": "#004080",
+              "on-secondary": "#0d232b",
+              "on-tertiary-fixed": "#383c55",
+              "inverse-surface": "#fcf9f8",
+              "tertiary-container": "#dbdefe",
+              "error-container": "#7f2927"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #0e0e0e; color: #e7e5e5; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-wrap: break-word; }
+        .font-headline { text-wrap: balance; }
+        .font-body { text-wrap: pretty; }
+        .font-label { font-variant-numeric: tabular-nums; }
+        .nav-safe { padding-top: calc(1rem + env(safe-area-inset-top)); padding-left: calc(2rem + env(safe-area-inset-left)); padding-right: calc(2rem + env(safe-area-inset-right)); }
+        a, button { touch-action: manipulation; }
+        :focus-visible { outline-offset: 2px; }
+        @media (prefers-reduced-motion: no-preference) {
+            #about header > * { opacity: 0; animation: hero-enter 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+            #about header > *:nth-child(1) { animation-delay: 40ms; }
+            #about header > *:nth-child(2) { animation-delay: 140ms; }
+            #about header > *:nth-child(3) { animation-delay: 240ms; }
+            #about header > *:nth-child(4) { animation-delay: 340ms; }
+        }
+        @keyframes hero-enter {
+            from { opacity: 0; transform: translateY(12px); filter: blur(4px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary/30 selection:text-primary">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-primary focus:text-on-primary focus:px-4 focus:py-2 focus:rounded-sm focus:text-sm focus:font-bold">Skip to content</a>
+<!-- Top Navigation (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/60 backdrop-blur-xl no-line tonal-shift bg-[#131313]">
+<div class="nav-safe flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-lg font-bold tracking-tighter text-[#e7e5e5] font-headline">{{ site.data.profile.name | upcase }}</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-['Space_Grotesk'] text-sm tracking-tight text-[#e7e5e5] hover:text-[#007ACC] transition-colors duration-300 inline-flex items-center py-2" href="#about">About</a>
+<a class="font-['Space_Grotesk'] text-sm tracking-tight text-[#e7e5e5] hover:text-[#007ACC] transition-colors duration-300 inline-flex items-center py-2" href="#experience">Experience</a>
+<a class="font-['Space_Grotesk'] text-sm tracking-tight text-[#e7e5e5] hover:text-[#007ACC] transition-colors duration-300 inline-flex items-center py-2" href="#skills">Skills</a>
+<a class="font-['Space_Grotesk'] text-sm tracking-tight text-[#e7e5e5] hover:text-[#007ACC] transition-colors duration-300 inline-flex items-center py-2" href="#projects">Projects</a>
+{% if site.data.profile.certifications.items.size > 0 %}
+<a class="font-['Space_Grotesk'] text-sm tracking-tight text-[#e7e5e5] hover:text-[#007ACC] transition-colors duration-300 inline-flex items-center py-2" href="#certifications">Certifications</a>
+{% endif %}
+<a class="font-['Space_Grotesk'] text-sm tracking-tight text-[#e7e5e5] hover:text-[#007ACC] transition-colors duration-300 inline-flex items-center py-2" href="#contact">Contact</a>
+</div>
+<a href="{{ site.data.profile.hero.resume_url }}" target="_blank" class="bg-primary text-on-primary px-5 py-2 text-sm font-bold rounded-sm hover:opacity-90 active:scale-95 transition-all">
+                Resume
+            </a>
+</div>
+</nav>
+<main id="main">
+<!-- Hero Section (Centered) -->
+<section class="min-h-screen flex flex-col justify-center items-center px-8 pt-20 max-w-7xl mx-auto text-center scroll-mt-24" id="about">
+<header class="max-w-4xl">
+<span class="font-label uppercase tracking-[0.3em] text-primary text-xs mb-6 block">{{ site.data.profile.role }}</span>
+<h1 class="font-headline text-4xl sm:text-5xl md:text-8xl font-bold tracking-tighter leading-none mb-8">
+                    {{ site.data.profile.hero.title_line_1 }} <br/>{{ site.data.profile.hero.title_line_2 }} <br/><span class="text-outline">{{ site.data.profile.hero.highlight }}</span>
+</h1>
+<p class="font-body text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12">
+                    {{ site.data.profile.hero.description }}
+                </p>
+<div class="flex flex-wrap gap-4 justify-center">
+<a href="{{ site.data.profile.hero.resume_url }}" target="_blank" class="bg-primary text-on-primary font-bold px-8 py-4 rounded-sm hover:opacity-90 active:scale-[0.98] transition-all flex items-center gap-2">
+<span aria-hidden="true" class="material-symbols-outlined text-[20px]">cloud_download</span>
+                        Download Resume
+                    </a>
+<a href="{{ site.data.profile.hero.github_url }}" target="_blank" class="border border-outline-variant text-on-surface font-bold px-8 py-4 rounded-sm hover:bg-surface-container-high active:scale-[0.98] transition-all flex items-center gap-2">
+<span aria-hidden="true" class="material-symbols-outlined text-[20px]">code</span>
+                        View GitHub
+                    </a>
+</div>
+</header>
+</section>
+<!-- Experience Section (Staggered Timeline) -->
+<section class="py-32 bg-surface-container-low px-8 overflow-hidden scroll-mt-24" id="experience">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-24">
+<h2 class="font-headline text-4xl font-bold tracking-tight mb-4">Experience</h2>
+<p class="font-body text-on-surface-variant max-w-xl mx-auto">{{ site.data.profile.experience.description }}</p>
+</div>
+<div class="relative">
+<div class="absolute left-1/2 top-0 bottom-0 w-px bg-outline-variant/30 -translate-x-1/2 hidden md:block"></div>
+<div class="space-y-24">
+{% for job in site.data.profile.experience.jobs %}
+{% assign is_right = forloop.index | modulo: 2 %}
+{% if is_right == 1 %}
+<!-- Right side -->
+<div class="relative flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 pr-0 md:pr-12 text-center md:text-right mb-8 md:mb-0">
+<span class="font-label text-xs uppercase tracking-widest {% if job.current %}text-primary{% else %}text-on-surface-variant{% endif %} mb-2 block">{{ job.year }}</span>
+<h3 class="font-headline text-2xl font-bold mb-1">{{ job.title }}</h3>
+<p class="font-body text-on-surface-variant">{{ job.company }}</p>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full {% if job.current %}bg-primary shadow-[0_0_15px_rgba(0,122,204,0.6)]{% else %}bg-outline{% endif %} z-10 hidden md:block"></div>
+<div class="md:w-1/2 pl-0 md:pl-12">
+<ul class="space-y-4 font-body text-on-surface/80 text-left">
+{% for bullet in job.bullets %}
+<li class="flex items-start gap-3">
+<span aria-hidden="true" class="material-symbols-outlined {% if job.current %}text-primary{% else %}text-outline{% endif %} text-sm mt-1 shrink-0">terminal</span>
+<span>{{ bullet }}</span>
+</li>
+{% endfor %}
+</ul>
+</div>
+</div>
+{% else %}
+<!-- Left side -->
+<div class="relative flex flex-col md:flex-row-reverse items-center">
+<div class="md:w-1/2 pl-0 md:pl-12 text-center md:text-left mb-8 md:mb-0">
+<span class="font-label text-xs uppercase tracking-widest {% if job.current %}text-primary{% else %}text-on-surface-variant{% endif %} mb-2 block">{{ job.year }}</span>
+<h3 class="font-headline text-2xl font-bold mb-1">{{ job.title }}</h3>
+<p class="font-body text-on-surface-variant">{{ job.company }}</p>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full {% if job.current %}bg-primary shadow-[0_0_15px_rgba(0,122,204,0.6)]{% else %}bg-outline{% endif %} z-10 hidden md:block"></div>
+<div class="md:w-1/2 pr-0 md:pr-12">
+<ul class="space-y-4 font-body text-on-surface/80 text-left md:text-right">
+{% for bullet in job.bullets %}
+<li class="flex items-start md:flex-row-reverse gap-3">
+<span aria-hidden="true" class="material-symbols-outlined {% if job.current %}text-primary{% else %}text-outline{% endif %} text-sm mt-1 shrink-0">terminal</span>
+<span>{{ bullet }}</span>
+</li>
+{% endfor %}
+</ul>
+</div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section (Categorized Clusters) -->
+<section class="py-32 px-8 max-w-7xl mx-auto scroll-mt-24" id="skills">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4 border-b border-outline-variant/30 pb-8">
+<h2 class="font-headline text-4xl font-bold tracking-tight">Core Technical Stack</h2>
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">{{ site.data.profile.skills.description }}</span>
+</div>
+{% assign groups = site.data.profile.skills.items | group_by: "category" %}
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+{% for group in groups %}
+<div class="space-y-6">
+<h4 class="font-label text-xs uppercase tracking-widest text-primary font-bold">{{ group.name }}</h4>
+<div class="grid grid-cols-1 gap-3">
+{% for skill in group.items %}
+<div class="bg-surface-container p-4 flex items-center gap-4 hover:bg-surface-container-high transition-all group">
+<span aria-hidden="true" class="material-symbols-outlined text-2xl group-hover:text-primary transition-colors">{{ skill.icon }}</span>
+<span class="font-label text-sm font-bold uppercase tracking-tighter">{{ skill.name }}</span>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endfor %}
+</div>
+</section>
+<!-- Projects Section (Centered Single Column) -->
+<section class="py-32 bg-surface-container-low px-8 scroll-mt-24" id="projects">
+<div class="max-w-7xl mx-auto text-center">
+<div class="max-w-xl mx-auto mb-20">
+<h2 class="font-headline text-4xl font-bold tracking-tight mb-6">Featured Projects</h2>
+<p class="font-body text-on-surface-variant">{{ site.data.profile.projects.description }}</p>
+</div>
+<div class="grid grid-cols-1 gap-12 max-w-5xl mx-auto">
+{% for project in site.data.profile.projects.items %}
+<div class="bg-surface p-12 border border-outline-variant/10 {% if project.url != "#" %}group hover:translate-y-[-4px] transition-transform duration-500{% endif %}">
+<div class="flex flex-col items-center mb-10">
+<span aria-hidden="true" class="material-symbols-outlined text-5xl text-primary mb-6" style="font-variation-settings: 'FILL' 1;">{{ project.icon }}</span>
+<span class="font-label text-[11px] uppercase tracking-[0.2em] border border-outline-variant px-3 py-1">{{ project.category }}</span>
+</div>
+<h3 class="font-headline text-3xl font-bold mb-4">{{ project.title }}</h3>
+<div class="font-body text-on-surface-variant mb-8 leading-relaxed max-w-2xl mx-auto">
+{{ project.description | markdownify }}
+</div>
+<div class="space-y-3 mb-10">
+<div class="flex flex-wrap gap-2 justify-center">
+{% for sub in project.subindustry %}
+<span class="border border-primary/40 text-primary font-label text-[11px] uppercase tracking-wider px-3 py-1">{{ sub }}</span>
+{% endfor %}
+</div>
+<div class="flex flex-wrap gap-2 justify-center">
+{% for tag in project.tags %}
+<span class="bg-surface-container text-on-surface-variant text-xs px-3 py-1 font-label group-hover:text-primary transition-colors">{{ tag }}</span>
+{% endfor %}
+</div>
+</div>
+{% if project.url != "#" %}
+<a class="inline-flex items-center gap-2 text-primary font-bold font-headline group-hover:translate-x-2 transition-transform" href="{{ project.url }}">
+                            View Case Study <span aria-hidden="true" class="material-symbols-outlined">arrow_forward</span>
+</a>
+{% endif %}
+</div>
+{% endfor %}
+</div>
+</div>
+</section>
+{% if site.data.profile.certifications.items.size > 0 %}
+<!-- Certifications Section -->
+<section class="py-32 px-8 max-w-7xl mx-auto scroll-mt-24" id="certifications">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4 border-b border-outline-variant/30 pb-8">
+<h2 class="font-headline text-4xl font-bold tracking-tight">Certifications</h2>
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">{{ site.data.profile.certifications.description }}</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+{% for cert in site.data.profile.certifications.items %}
+<div class="bg-surface-container p-8 flex flex-col items-center text-center hover:bg-surface-container-high transition-all{% if cert.expired %} opacity-60{% endif %}">
+<div class="mb-6 {% if cert.expired %}grayscale{% endif %}">
+<img src="{{ cert.badge_url }}" alt="{{ cert.name }}" class="h-28 w-auto mx-auto" loading="lazy" />
+</div>
+<h3 class="font-headline text-lg font-bold mb-2">{{ cert.name }}</h3>
+<p class="font-body text-on-surface-variant text-sm mb-1">{{ cert.issuer }}</p>
+<span class="font-label text-xs uppercase tracking-widest {% if cert.expired %}text-secondary-dim{% else %}text-primary{% endif %}">{{ cert.year }}</span>
+</div>
+{% endfor %}
+</div>
+</section>
+{% endif %}
+<!-- Contact Section -->
+<section class="py-40 px-8 max-w-7xl mx-auto scroll-mt-24" id="contact">
+<div class="bg-surface-container p-12 md:p-24 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
+<div class="relative z-10 max-w-2xl">
+<h2 class="font-headline text-5xl font-bold tracking-tighter mb-8">Let's build something scalable.</h2>
+<p class="font-body text-on-surface-variant text-lg mb-12">
+                        {{ site.data.profile.contact.availability }}
+                    </p>
+<div class="flex flex-col gap-6">
+<a class="group flex items-center gap-6 p-4 border border-outline-variant/30 hover:bg-surface-variant transition-all" href="mailto:{{ site.data.profile.contact.email }}">
+<div class="w-12 h-12 bg-primary/10 flex items-center justify-center text-primary">
+<span aria-hidden="true" class="material-symbols-outlined">alternate_email</span>
+</div>
+<div>
+<span class="block font-label text-[11px] uppercase tracking-widest text-on-surface-variant">Email Me</span>
+<span class="block font-headline text-xl">{{ site.data.profile.contact.email }}</span>
+</div>
+</a>
+<div class="flex gap-4">
+<a class="bg-surface-container-highest px-6 py-4 flex-1 flex items-center justify-center gap-3 hover:text-primary transition-all" href="{{ site.data.profile.contact.github_url }}" target="_blank">
+<span aria-hidden="true" class="material-symbols-outlined">terminal</span>
+<span class="font-bold">GitHub</span>
+</a>
+<a class="bg-surface-container-highest px-6 py-4 flex-1 flex items-center justify-center gap-3 hover:text-primary transition-all" href="{{ site.data.profile.contact.linkedin_url }}" target="_blank">
+<span aria-hidden="true" class="material-symbols-outlined">badge</span>
+<span class="font-bold">LinkedIn</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full border-t border-[#484848]/20 bg-[#0e0e0e]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-20 w-full">
+<div class="text-xs font-black text-[#484848] font-headline mb-6 md:mb-0">
+                {{ site.data.profile.footer.brand }}
+            </div>
+<div class="font-['Manrope'] text-[11px] uppercase tracking-[0.2em] text-[#484848] text-center md:text-left mb-6 md:mb-0">
+                {{ site.data.profile.footer.copyright }}
+            </div>
+<div class="flex gap-8">
+<a class="font-['Manrope'] text-[11px] uppercase tracking-[0.2em] text-[#484848] hover:text-[#007ACC] transition-colors inline-flex items-center min-h-[44px]" href="{{ site.data.profile.contact.github_url }}" target="_blank">GitHub</a>
+<a class="font-['Manrope'] text-[11px] uppercase tracking-[0.2em] text-[#484848] hover:text-[#007ACC] transition-colors inline-flex items-center min-h-[44px]" href="{{ site.data.profile.contact.linkedin_url }}" target="_blank">LinkedIn</a>
+</div>
+</div>
+</footer>
+</body></html>
