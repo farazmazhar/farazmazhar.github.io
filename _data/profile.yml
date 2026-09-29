@@ -125,7 +125,7 @@ projects:
   description: "Flagship projects that I've created from scratch."
   items:
     - category: "Agentic AI"
-      title: "Agentic Framework"
+      title: "PartnerLinq - Agentic Framework"
       icon: "smart_toy"
       description: "A modular agent framework that keeps each agent's bespoke logic isolated to its own module while driving cross-cutting behavior from metadata — onboarding a new agent is a focused implementation plus configuration, with the bulk of the platform reused across the fleet. Owns the full agent lifecycle from boot and registration through invocation, giving the platform end-to-end control over how agents are configured, executed, and observed at runtime. Its flagship capability is a dynamic orchestrator that composes workflows at runtime from the capabilities advertised by registered agents, solving problems for which no pre-defined workflow exists. Built around a **capability** and **metadata** model that lets agents declare what they can do, it forms the basis for discovery, composition, and reuse across the fleet."
       subindustry:
