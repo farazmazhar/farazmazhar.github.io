@@ -1,26 +1,39 @@
 name: "Faraz Mazhar"
-title: "Faraz Mazhar | Managing Consultant - Data Engineering"
-role: "Managing Consultant - Data Engineering"
+title: "Faraz Mazhar | Managing Consultant - Data & AI Engineering"
+role: "Managing Consultant - Data & AI Engineering"
 
 hero:
   title_line_1: "Building Scalable"
   title_line_2: "Data Ecosystems"
   highlight: "for 8+ Years."
-  description: "Data engineer with 8+ years building scalable data platforms on AWS and Azure. Architected and led development of a modular data framework powering enterprise analytical and ML pipelines. Owns the full lifecycle from data modeling and lakehouse design through API integration, orchestration, and production deployment."
+  description: "Data engineer with 8+ years building scalable data platforms on AWS and Azure. Architected and led development of a modular data framework powering enterprise analytical and ML pipelines. Owns the full lifecycle from data modeling and lakehouse design through API integration, orchestration, and production deployment. Now building agentic platforms — metadata-driven designs with a dynamic orchestrator that composes workflows at runtime."
   resume_url: "assets/Resume_Faraz_Mazhar.pdf"
   github_url: "https://github.com/farazmazhar"
 
 experience:
-  description: "A timeline of engineering complex data architectures and leading technical transformations."
+  description: "A timeline of engineering complex data architectures, leading technical transformations, and building agentic AI platforms."
   jobs:
     - year: "March 2021 — PRESENT"
       title: "Managing Consultant"
       company: "Systems Limited - Lahore, Pakistan"
       company_logo: "assets/logos/systems-limited.svg"
       current: true
+      focus:
+        - "Multi-Agent Orchestration"
+        - "Python"
+        - "PySpark"
+        - "Delta Lake"
+        - "Databricks"
+        - "Airflow"
+        - "Django"
       bullets:
+        - "Agentic Framework — architected and built a metadata-driven agent framework in which each agent's bespoke logic is isolated to its own module while cross-cutting behavior is driven by metadata; onboarding a new agent is a focused implementation plus configuration, with the bulk of the platform reused across the fleet."
+        - "Owned the full agent lifecycle from boot and registration through invocation, giving the platform end-to-end control over how agents are configured, executed, and observed at runtime."
+        - "Built the framework's flagship capability: a dynamic orchestrator that composes workflows at runtime from the capabilities exposed by registered agents, solving problems for which no pre-defined workflow exists."
+        - "Designed the capability and metadata model that lets agents advertise what they can do — the basis for discovery, composition, and reuse across the agent fleet."
         - "PartnerLinq - Visibility - Data Engineering Lead"
         - "Led design and development of a modular Data Framework (Python, Pandas, PySpark, Delta Lake) for ingestion, curation, and analytics — enabling data pipelines without deployment cycles."
+        - "Designed a DSL-driven Canonical Model and Semantic Model for schema-agnostic data curation across arbitrary inputs and outputs."
         - "Owned end-to-end solution architecture across the platform — designed features spanning data ingestion, migration, reconciliation, policy frameworks, alerting, automated reporting, visual analytics, and platform-wide enhancements and optimizations."
         - "Data-modeled the metastore, Delta Lake, and SQL Server datastore; optimized for query performance and multi-tenancy."
         - "Architected REST and GraphQL APIs for Integration and Semantic services, enabling external systems to submit workloads and consume metadata dynamically."
@@ -30,6 +43,14 @@ experience:
       company: "Northbay Solutions - Lahore, Pakistan"
       company_logo: "assets/logos/northbay-solutions.jpg"
       current: false
+      focus:
+        - "Python"
+        - "PySpark"
+        - "AWS Glue"
+        - "Lambda"
+        - "Step Functions"
+        - "CloudFormation"
+        - "Flask"
       bullets:
         - "Migrated legacy SAS code to PySpark and built reusable dependency packages for AWS Glue ETL jobs; developed a Data Lake framework for large-scale ingestion and processing."
         - "Built event-driven ETL triggers using Lambda and CloudWatch on S3 events, and API Gateway endpoints for Kinesis Data Streams with DynamoDB tooling."
@@ -40,12 +61,29 @@ experience:
       company: "Mentor Graphics - Lahore, Pakistan"
       company_logo: "assets/logos/mentor-graphics.svg"
       current: false
+      focus:
+        - "C/C++"
+        - "Python"
+        - "Bash"
+        - "Nucleus RTOS"
       bullets:
         - "Performed QA and test automation for Nucleus RTOS; wrote test scripts in Python and Bash."
 
 skills:
   description: "Validated Expertise"
   items:
+    - name: "Multi-Agent Orchestration"
+      icon: "hub"
+      category: "AI & Agents"
+    - name: "Dynamic Workflow Composition"
+      icon: "conversion_path"
+      category: "AI & Agents"
+    - name: "Metadata-Driven Agent Frameworks"
+      icon: "smart_toy"
+      category: "AI & Agents"
+    - name: "LLM Tool Calling"
+      icon: "function"
+      category: "AI & Agents"
     - name: "Python & Bash"
       icon: "code_blocks"
       category: "Languages & Frameworks"
@@ -87,16 +125,9 @@ projects:
   description: "Flagship projects that I've created from scratch."
   items:
     - category: "Agentic AI"
-      title: "Agentic Framework"
+      title: "PartnerLinq - Agentic Framework"
       icon: "smart_toy"
-      description: |
-        Architected and built a metadata-driven agent framework in which each agent's bespoke logic is isolated to its own module while cross-cutting behavior is driven by metadata — onboarding a new agent is a focused implementation plus configuration, with the bulk of the platform reused across the fleet.
-
-        ▸ Owned the full agent lifecycle from boot and registration through invocation, giving the platform end-to-end control over how agents are configured, executed, and observed at runtime.
-
-        ▸ Built the framework's flagship capability: a dynamic orchestrator that composes workflows at runtime from the capabilities exposed by registered agents, solving problems for which no pre-defined workflow exists.
-
-        ▸ Designed the capability and metadata model that lets agents advertise what they can do — the basis for discovery, composition, and reuse across the agent fleet.
+      description: "A modular agent framework that keeps each agent's bespoke logic isolated to its own module while driving cross-cutting behavior from metadata — onboarding a new agent is a focused implementation plus configuration, with the bulk of the platform reused across the fleet. Owns the full agent lifecycle from boot and registration through invocation, giving the platform end-to-end control over how agents are configured, executed, and observed at runtime. Its flagship capability is a dynamic orchestrator that composes workflows at runtime from the capabilities advertised by registered agents, solving problems for which no pre-defined workflow exists. Built around a **capability** and **metadata** model that lets agents declare what they can do, it forms the basis for discovery, composition, and reuse across the fleet."
       subindustry:
         - "Agent Orchestration"
         - "Framework"
@@ -179,7 +210,7 @@ projects:
       mt_class: "mt-0"
 
 contact:
-  availability: "Currently open to consulting opportunities or senior engineering leadership roles focused on high-scale data infrastructure."
+  availability: "Currently open to consulting opportunities or senior engineering leadership roles focused on high-scale data platforms and agentic AI systems."
   email: "csfarazmazhar@gmail.com"
   location: "Lahore, Pakistan"
   github_url: "https://github.com/farazmazhar"
@@ -207,4 +238,4 @@ certifications:
 
 footer:
   brand: "FARAZ MAZHAR"
-  copyright: "© 2026 FARAZ MAZHAR | DATA ENGINEER"
+  copyright: "© 2026 FARAZ MAZHAR | DATA & AI ENGINEER"

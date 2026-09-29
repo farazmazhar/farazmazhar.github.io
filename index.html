@@ -315,6 +315,16 @@
                 </span>
                 {{ job.company }}
               </p>
+              {% if job.focus %}
+              <div class="flex flex-wrap gap-2 mb-6">
+                {% for item in job.focus %}
+                <span
+                  class="font-label text-[11px] uppercase tracking-wider border border-outline-variant/60 text-on-surface-variant px-2.5 py-1"
+                  >{{ item }}</span
+                >
+                {% endfor %}
+              </div>
+              {% endif %}
               <ul class="space-y-4 font-body text-on-surface/80">
                 {% for bullet in job.bullets %}
                 <li class="flex items-start gap-3">
