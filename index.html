@@ -8,6 +8,13 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
     <title>{{ site.data.profile.title }}</title>
+    <meta name="description" content="{{ site.data.profile.meta.description }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ site.data.profile.title }}" />
+    <meta property="og:description" content="{{ site.data.profile.meta.description }}" />
+    <meta property="og:url" content="{{ site.url }}/" />
+    <meta name="theme-color" content="#0e0e0e" />
+    <link rel="icon" href="{{ site.data.profile.meta.favicon }}" type="image/png" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
@@ -193,43 +200,20 @@
           {{ site.data.profile.name }}
         </div>
         <div class="hidden md:flex items-center space-x-8">
+          {% for link in site.data.profile.nav %}
           <a
             class="font-['Space_Grotesk'] text-sm tracking-tight text-[#e7e5e5] hover:text-[#007ACC] transition-colors duration-300 inline-flex items-center py-2"
-            href="#about"
-            >About</a
+            href="{{ link.href }}"
+            >{{ link.label }}</a
           >
-          <a
-            class="font-['Space_Grotesk'] text-sm tracking-tight text-[#e7e5e5] hover:text-[#007ACC] transition-colors duration-300 inline-flex items-center py-2"
-            href="#experience"
-            >Experience</a
-          >
-          <a
-            class="font-['Space_Grotesk'] text-sm tracking-tight text-[#e7e5e5] hover:text-[#007ACC] transition-colors duration-300 inline-flex items-center py-2"
-            href="#skills"
-            >Skills</a
-          >
-          <a
-            class="font-['Space_Grotesk'] text-sm tracking-tight text-[#e7e5e5] hover:text-[#007ACC] transition-colors duration-300 inline-flex items-center py-2"
-            href="#projects"
-            >Projects</a
-          >
-          <a
-            class="font-['Space_Grotesk'] text-sm tracking-tight text-[#e7e5e5] hover:text-[#007ACC] transition-colors duration-300 inline-flex items-center py-2"
-            href="#certifications"
-            >Certifications</a
-          >
-          <a
-            class="font-['Space_Grotesk'] text-sm tracking-tight text-[#e7e5e5] hover:text-[#007ACC] transition-colors duration-300 inline-flex items-center py-2"
-            href="#contact"
-            >Contact</a
-          >
+          {% endfor %}
         </div>
         <a
           href="{{ site.data.profile.hero.resume_url }}"
-          target="_blank"
+          target="_blank" rel="noopener noreferrer"
           class="bg-primary text-on-primary px-5 py-2 text-sm font-bold rounded-sm hover:opacity-90 active:scale-95 transition-all inline-block"
         >
-          Resume
+          {{ site.data.profile.meta.resume_label }}
         </a>
       </div>
     </nav>
@@ -261,7 +245,7 @@
           <div class="flex flex-wrap gap-4">
             <a
               href="{{ site.data.profile.hero.resume_url }}"
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
               class="bg-primary text-on-primary font-bold px-8 py-4 rounded-sm hover:opacity-90 active:scale-[0.98] transition-all flex items-center gap-2"
             >
               <span aria-hidden="true" class="material-symbols-outlined text-[20px]"
@@ -271,7 +255,7 @@
             </a>
             <a
               href="{{ site.data.profile.hero.github_url }}"
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
               class="border border-outline-variant text-on-surface font-bold px-8 py-4 rounded-sm hover:bg-surface-container-high active:scale-[0.98] transition-all flex items-center gap-2"
             >
               <span aria-hidden="true" class="material-symbols-outlined text-[20px]">code</span>
@@ -285,7 +269,7 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
           <div class="md:col-span-4">
             <h2 class="font-headline text-4xl font-bold tracking-tight mb-4">
-              Experience
+              {{ site.data.profile.experience.heading }}
             </h2>
             <p class="font-body text-on-surface-variant">
               {{ site.data.profile.experience.description }}
@@ -325,8 +309,14 @@
                 {% endfor %}
               </div>
               {% endif %}
+              {% for group in job.groups %}
+              {% if group.title != "" %}
+              <h4 class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-8 mb-4">
+                {{ group.title }}
+              </h4>
+              {% endif %}
               <ul class="space-y-4 font-body text-on-surface/80">
-                {% for bullet in job.bullets %}
+                {% for bullet in group.bullets %}
                 <li class="flex items-start gap-3">
                   <span
                     aria-hidden="true"
@@ -337,6 +327,7 @@
                 </li>
                 {% endfor %}
               </ul>
+              {% endfor %}
             </div>
             {% endfor %}
           </div>
@@ -348,15 +339,20 @@
           class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4"
         >
           <h2 class="font-headline text-4xl font-bold tracking-tight">
-            Core Technical Stack
+            {{ site.data.profile.skills.heading }}
           </h2>
           <span
             class="font-label text-xs uppercase tracking-widest text-on-surface-variant"
             >{{ site.data.profile.skills.description }}</span
           >
         </div>
+        {% assign skill_groups = site.data.profile.skills.items | group_by: "category" %}
+        {% for group in skill_groups %}
+        <h3 class="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-4{% unless forloop.first %} mt-10{% endunless %}">
+          {{ group.name }}
+        </h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {% for skill in site.data.profile.skills.items %}
+          {% for skill in group.items %}
           <div
             class="bg-surface-container p-6 flex flex-col items-center justify-center text-center hover:bg-surface-container-high transition-all group"
           >
@@ -374,13 +370,14 @@
           </div>
           {% endfor %}
         </div>
+        {% endfor %}
       </section>
       <!-- Projects Section (Asymmetric Grid) -->
       <section class="py-32 bg-surface-container-low px-8 scroll-mt-24" id="projects">
         <div class="max-w-7xl mx-auto">
           <div class="max-w-xl mb-20">
             <h2 class="font-headline text-4xl font-bold tracking-tight mb-6">
-              Featured Projects
+              {{ site.data.profile.projects.heading }}
             </h2>
             <p class="font-body text-on-surface-variant">
               {{ site.data.profile.projects.description }}
@@ -427,15 +424,28 @@
                   {% endfor %}
                 </div>
               </div>
-              <!-- Hidden as requested:
-              <a
-                class="inline-flex items-center gap-2 text-primary font-bold font-headline group-hover:translate-x-2 transition-transform"
-                href="{{ project.url }}"
-              >
-                View Case Study
-                <span class="material-symbols-outlined">arrow_forward</span>
-              </a>
-              -->
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+      <!-- Education Section -->
+      <section class="py-32 bg-surface-container-low px-8 scroll-mt-24" id="education">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
+          <div class="md:col-span-4">
+            <h2 class="font-headline text-4xl font-bold tracking-tight mb-4">
+              {{ site.data.profile.education.heading }}
+            </h2>
+            <p class="font-body text-on-surface-variant">
+              {{ site.data.profile.education.description }}
+            </p>
+          </div>
+          <div class="md:col-span-8 space-y-8">
+            {% for edu in site.data.profile.education.items %}
+            <div>
+              <span class="font-label text-xs uppercase tracking-widest text-primary mb-2 block">{{ edu.year }}</span>
+              <h3 class="font-headline text-2xl font-bold mb-1">{{ edu.degree }}</h3>
+              <p class="font-body text-on-surface-variant">{{ edu.school }}</p>
             </div>
             {% endfor %}
           </div>
@@ -445,7 +455,7 @@
       <section class="py-32 px-8 max-w-7xl mx-auto scroll-mt-24" id="certifications">
         <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
           <h2 class="font-headline text-4xl font-bold tracking-tight">
-            Certifications
+            {{ site.data.profile.certifications.heading }}
           </h2>
           <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant"
             >{{ site.data.profile.certifications.description }}</span
@@ -475,10 +485,14 @@
           ></div>
           <div class="relative z-10 max-w-2xl">
             <h2 class="font-headline text-5xl font-bold tracking-tighter mb-8">
-              Let's build something scalable.
+              {{ site.data.profile.contact.heading }}
             </h2>
             <p class="font-body text-on-surface-variant text-lg mb-12">
               {{ site.data.profile.contact.availability }}
+            </p>
+            <p class="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-6 flex items-center gap-2">
+              <span aria-hidden="true" class="material-symbols-outlined text-base">location_on</span>
+              {{ site.data.profile.contact.location }}
             </p>
             <div class="flex flex-col gap-6">
               <a
@@ -504,7 +518,7 @@
                 <a
                   class="bg-surface-container-highest px-6 py-4 flex-1 flex items-center justify-center gap-3 hover:text-primary transition-all"
                   href="{{ site.data.profile.contact.github_url }}"
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <span aria-hidden="true" class="material-symbols-outlined">terminal</span>
                   <span class="font-bold">GitHub</span>
@@ -512,7 +526,7 @@
                 <a
                   class="bg-surface-container-highest px-6 py-4 flex-1 flex items-center justify-center gap-3 hover:text-primary transition-all"
                   href="{{ site.data.profile.contact.linkedin_url }}"
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <span aria-hidden="true" class="material-symbols-outlined">badge</span>
                   <span class="font-bold">LinkedIn</span>
@@ -529,26 +543,26 @@
         class="flex flex-col md:flex-row justify-between items-center px-12 py-20 w-full"
       >
         <div
-          class="text-xs font-black text-[#484848] font-headline mb-6 md:mb-0"
+          class="text-xs font-black text-[#8a8a8a] font-headline mb-6 md:mb-0"
         >
           {{ site.data.profile.footer.brand }}
         </div>
         <div
-          class="font-['Manrope'] text-[11px] uppercase tracking-[0.2em] text-[#484848] text-center md:text-left mb-6 md:mb-0"
+          class="font-['Manrope'] text-[11px] uppercase tracking-[0.2em] text-[#8a8a8a] text-center md:text-left mb-6 md:mb-0"
         >
           {{ site.data.profile.footer.copyright }}
         </div>
         <div class="flex gap-8">
           <a
-            class="font-['Manrope'] text-[11px] uppercase tracking-[0.2em] text-[#484848] hover:text-[#007ACC] transition-colors inline-flex items-center min-h-[44px]"
+            class="font-['Manrope'] text-[11px] uppercase tracking-[0.2em] text-[#8a8a8a] hover:text-[#007ACC] transition-colors inline-flex items-center min-h-[44px]"
             href="{{ site.data.profile.contact.github_url }}"
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
             >GitHub</a
           >
           <a
-            class="font-['Manrope'] text-[11px] uppercase tracking-[0.2em] text-[#484848] hover:text-[#007ACC] transition-colors inline-flex items-center min-h-[44px]"
+            class="font-['Manrope'] text-[11px] uppercase tracking-[0.2em] text-[#8a8a8a] hover:text-[#007ACC] transition-colors inline-flex items-center min-h-[44px]"
             href="{{ site.data.profile.contact.linkedin_url }}"
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
             >LinkedIn</a
           >
         </div>
