@@ -26,6 +26,8 @@ But `profile.yml` is optional. Someone can drop in a completely different `index
 name: ""
 title: ""
 role: ""
+nav: []              # [{label, href}]
+meta: {description: "", favicon: "", resume_label: ""}
 hero:
   title_line_1: ""
   title_line_2: ""
@@ -41,7 +43,10 @@ experience:
       company: ""
       company_logo: ""   # path to assets/logos/...
       current: false
-      bullets: []
+      focus: []          # optional tag chips
+      groups:            # title may be "" for an untitled group
+        - title: ""
+          bullets: []
 skills:
   description: ""
   items:
