@@ -2,170 +2,203 @@
 ---
 
 <!doctype html>
-
-<html class="dark" lang="en">
+{% assign p = site.data.profile %}
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
-    <title>{{ site.data.profile.title }}</title>
-    <meta name="description" content="{{ site.data.profile.meta.description }}" />
+    <title>{{ p.title }}</title>
+    <meta name="description" content="{{ p.meta.description }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="{{ site.data.profile.title }}" />
-    <meta property="og:description" content="{{ site.data.profile.meta.description }}" />
+    <meta property="og:title" content="{{ p.title }}" />
+    <meta property="og:description" content="{{ p.meta.description }}" />
     <meta property="og:url" content="{{ site.url }}/" />
-    <meta name="theme-color" content="#0e0e0e" />
-    <link rel="icon" href="{{ site.data.profile.meta.favicon }}" type="image/png" />
+    <meta name="theme-color" content="{{ p.meta.theme_color }}" />
+    <link rel="icon" href="{{ p.meta.favicon }}" type="image/png" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Sans+Condensed:wght@400;500;600&amp;display=swap"
       rel="stylesheet"
     />
     <script id="tailwind-config">
       tailwind.config = {
-        darkMode: "class",
         theme: {
           extend: {
             colors: {
-              "secondary-fixed-dim": "#c1d8e4",
-              "surface-dim": "#0e0e0e",
-              "inverse-primary": "#005a9e",
-              "error-dim": "#bb5551",
-              "on-surface-variant": "#acabaa",
-              secondary: "#8ba1ac",
-              "on-secondary-fixed-variant": "#495f69",
-              "tertiary-dim": "#ccd0ef",
-              "surface-container-lowest": "#000000",
-              background: "#0e0e0e",
-              primary: "#007ACC",
-              "surface-container": "#191a1a",
-              "surface-tint": "#007ACC",
-              surface: "#0e0e0e",
-              "outline-variant": "#484848",
-              "surface-variant": "#252626",
-              "secondary-container": "#293e48",
-              "primary-fixed-dim": "#4da3ff",
-              "primary-dim": "#3395ff",
-              error: "#ee7d77",
-              "on-primary": "#ffffff",
-              "on-primary-container": "#b3d9ff",
-              outline: "#767575",
-              "inverse-on-surface": "#565555",
-              "on-tertiary-container": "#4a4e69",
-              "on-background": "#e7e5e5",
-              "on-primary-fixed-variant": "#005a9e",
-              "surface-container-high": "#1f2020",
-              "on-secondary-fixed": "#2d424c",
-              "surface-container-highest": "#252626",
-              "surface-bright": "#2b2c2c",
-              "on-tertiary-fixed-variant": "#545873",
-              "tertiary-fixed": "#dbdefe",
-              "secondary-fixed": "#cfe6f2",
-              "on-primary-fixed": "#002d4d",
-              "on-error-container": "#ff9993",
-              "secondary-dim": "#8ba1ac",
-              "on-error": "#490106",
-              "on-secondary-container": "#acc3ce",
-              "tertiary-fixed-dim": "#ccd0ef",
-              "on-surface": "#e7e5e5",
-              tertiary: "#ececff",
-              "surface-container-low": "#131313",
-              "on-tertiary": "#535771",
-              "primary-fixed": "#99ccff",
-              "primary-container": "#004080",
-              "on-secondary": "#0d232b",
-              "on-tertiary-fixed": "#383c55",
-              "inverse-surface": "#fcf9f8",
-              "tertiary-container": "#dbdefe",
-              "error-container": "#7f2927",
+              paper: "#F6F7F9",
+              ink: "#14181F",
+              sub: "#4E5663",
+              rule: "#D8DCE2",
+              accent: "#0F766E",
             },
             fontFamily: {
-              headline: ["Space Grotesk"],
-              body: ["Inter"],
-              label: ["Manrope"],
-            },
-            borderRadius: {
-              DEFAULT: "0.125rem",
-              lg: "0.25rem",
-              xl: "0.5rem",
-              full: "0.75rem",
+              body: ['"IBM Plex Sans"', "system-ui", "sans-serif"],
+              cond: ['"IBM Plex Sans Condensed"', '"IBM Plex Sans"', "system-ui", "sans-serif"],
             },
           },
         },
       };
     </script>
     <style>
+      .contact-icon{width:22px!important;height:22px!important}
+      .skill-icon{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+      html {
+        background-color: #f6f7f9;
+      }
       body {
-        font-family: "Inter", sans-serif;
-        background-color: #0e0e0e;
-        color: #e7e5e5;
+        font-family: "IBM Plex Sans", system-ui, sans-serif;
+        font-size: 1.0625rem;
+        line-height: 1.6;
+        background-color: #f6f7f9;
+        color: #14181f;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         overflow-wrap: break-word;
       }
-      .font-headline {
-        text-wrap: balance;
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
       }
-      .font-body {
+      /* Square corners everywhere: no rounded shapes except the status dot. */
+      *,
+      *::before,
+      *::after {
+        border-radius: 0;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      p {
         text-wrap: pretty;
       }
-      .font-label {
-        font-variant-numeric: tabular-nums;
+      h1,
+      h2,
+      h3 {
+        text-wrap: balance;
       }
       .nav-safe {
-        padding-top: calc(1rem + env(safe-area-inset-top));
-        padding-left: calc(2rem + env(safe-area-inset-left));
-        padding-right: calc(2rem + env(safe-area-inset-right));
+        padding-left: calc(1.5rem + env(safe-area-inset-left));
+        padding-right: calc(1.5rem + env(safe-area-inset-right));
+      }
+      @media (min-width: 768px) {
+        .nav-safe {
+          padding-left: calc(3rem + env(safe-area-inset-left));
+          padding-right: calc(3rem + env(safe-area-inset-right));
+        }
       }
       a,
       button {
         touch-action: manipulation;
       }
       :focus-visible {
-        outline-offset: 2px;
+        outline: 2px solid #0f766e;
+        outline-offset: 3px;
       }
+      ::selection {
+        background: rgba(15, 118, 110, 0.18);
+      }
+
+      /* Design-doc grid: margin column + reading column */
+      .doc {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.25rem;
+      }
+      @media (min-width: 900px) {
+        .doc {
+          grid-template-columns: 240px minmax(0, 1fr);
+          gap: 4rem;
+        }
+      }
+      .measure {
+        max-width: 66ch;
+      }
+      .nav-link[aria-current] {
+        color: #14181f;
+        box-shadow: inset 0 -2px 0 #0f766e;
+      }
+      .live-dot::before {
+        content: "";
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 9999px;
+        background: #0f766e;
+        margin-right: 0.5rem;
+        vertical-align: 0.1em;
+      }
+      .highlight strong {
+        font-weight: inherit;
+        box-shadow: inset 0 -0.45em 0 rgba(15, 118, 110, 0.14);
+      }
+      .prose-doc strong {
+        font-weight: 600;
+        color: #14181f;
+      }
+      .bullet {
+        position: relative;
+        padding-left: 1.25rem;
+      }
+      .bullet::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.8em;
+        width: 0.5rem;
+        height: 1px;
+        background: #4e5663;
+      }
+
+      /* Experience: "show more" panels */
+      html.js .more {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 320ms cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      html.js .more.is-open {
+        grid-template-rows: 1fr;
+      }
+      .more-inner {
+        overflow: hidden;
+        min-height: 0;
+      }
+
+      /* Skills filter projects */
+      .project {
+        transition: opacity 240ms ease;
+      }
+      .project.is-dim {
+        opacity: 0.3;
+      }
+      .project.is-match .project-title {
+        color: #0f766e;
+      }
+
+      /* One orchestrated moment: the opening reads in, once */
       @media (prefers-reduced-motion: no-preference) {
-        #about header > * {
-          opacity: 0;
-          animation: hero-enter 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        .intro > * {
+          animation: read-in 420ms cubic-bezier(0.23, 1, 0.32, 1) both;
         }
-        #about header > *:nth-child(1) {
-          animation-delay: 40ms;
-        }
-        #about header > *:nth-child(2) {
-          animation-delay: 140ms;
-        }
-        #about header > *:nth-child(3) {
-          animation-delay: 240ms;
-        }
-        #about header > *:nth-child(4) {
-          animation-delay: 340ms;
-        }
+        .intro > *:nth-child(2) { animation-delay: 60ms; }
+        .intro > *:nth-child(3) { animation-delay: 120ms; }
+        .intro > *:nth-child(4) { animation-delay: 180ms; }
+        .intro-margin { animation: read-in 420ms 240ms cubic-bezier(0.23, 1, 0.32, 1) both; }
       }
-      @keyframes hero-enter {
+      @keyframes read-in {
         from {
           opacity: 0;
-          transform: translateY(12px);
-          filter: blur(4px);
+          transform: translateY(8px);
         }
         to {
           opacity: 1;
-          transform: translateY(0);
-          filter: blur(0);
+          transform: none;
         }
-      }
-      .material-symbols-outlined {
-        font-variation-settings:
-          "FILL" 0,
-          "wght" 400,
-          "GRAD" 0,
-          "opsz" 24;
-      }
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
       }
       @media (prefers-reduced-motion: reduce) {
         *,
@@ -179,394 +212,448 @@
       }
     </style>
   </head>
-  <body
-    class="bg-surface text-on-surface selection:bg-primary/30 selection:text-primary"
-  >
+  <body class="bg-paper text-ink">
+    <!-- Monochrome line icons, referenced by name from profile.yml (skills[].icon) -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
+      <symbol id="i-agents" viewBox="0 0 24 24"><rect x="9.5" y="2.5" width="5" height="5"/><rect x="2.5" y="16.5" width="5" height="5"/><rect x="9.5" y="16.5" width="5" height="5"/><rect x="16.5" y="16.5" width="5" height="5"/><path d="M12 7.5v4.5M5 16.5V12h14v4.5M12 12v4.5"/></symbol>
+      <symbol id="i-workflow" viewBox="0 0 24 24"><rect x="2.5" y="3.5" width="6" height="6"/><rect x="15.5" y="14.5" width="6" height="6"/><path d="M8.5 6.5H12v11h3.5"/></symbol>
+      <symbol id="i-metadata" viewBox="0 0 24 24"><path d="M5 2.5h10l4 4v15H5z"/><path d="M15 2.5v4h4M8 11h8M8 14.5h8M8 18h5"/></symbol>
+      <symbol id="i-function" viewBox="0 0 24 24"><path d="M8 3.5H6v6l-2.5 2.5L6 14.5v6h2M16 3.5h2v6l2.5 2.5-2.5 2.5v6h-2"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M13.5 2.5 5 13.5h6.5l-1 8 8.5-11h-6.5z"/></symbol>
+      <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-13M4.5 12c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3"/></symbol>
+      <symbol id="i-stream" viewBox="0 0 24 24"><path d="M2.5 6h13M2.5 12h18M2.5 18h13M17.5 9l3 3-3 3"/></symbol>
+      <symbol id="i-schema" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="7" height="5"/><rect x="14.5" y="2.5" width="7" height="5"/><rect x="14.5" y="16.5" width="7" height="5"/><path d="M9.5 5h5M6 7.5V19h8.5"/></symbol>
+      <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="2.5" y="3.5" width="19" height="17"/><path d="M6.5 9l3 3-3 3M12 15h5"/></symbol>
+      <symbol id="i-table" viewBox="0 0 24 24"><rect x="2.5" y="3.5" width="19" height="17"/><path d="M2.5 9h19M2.5 14.5h19M9.5 9v11.5"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 6.5 2.5 12 8 17.5M16 6.5l5.5 5.5-5.5 5.5M14 3.5l-4 17"/></symbol>
+      <symbol id="i-api" viewBox="0 0 24 24"><path d="M12 2.5 20.5 7.25v9.5L12 21.5l-8.5-4.75v-9.5z"/><path d="M12 2.5 3.5 16.75h17z"/></symbol>
+      <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 19h10.5a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.4 12.1 3.5 3.5 0 0 0 7 19z"/></symbol>
+      <symbol id="i-schedule" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 3.5"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3 21 8l-9 5-9-5z"/><path d="M3 12.5l9 5 9-5M3 16.5l9 5 9-5"/></symbol>
+      <symbol id="i-container" viewBox="0 0 24 24"><path d="M3 7.5 12 2.5l9 5v9l-9 5-9-5z"/><path d="M3 7.5l9 5 9-5M12 12.5v9"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15"/><path d="M2.5 5.5 12 13l9.5-7.5"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="12" height="12"/><path d="M15.5 8.5v-5h-12v12h5"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s-7-6.6-7-12a7 7 0 0 1 14 0c0 5.4-7 12-7 12z"/><rect x="10" y="7.5" width="4" height="4"/></symbol>
+      <symbol id="i-git" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2.5"/><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="7" r="2.5"/><path d="M6 7.5v9M18 9.5c0 5-12 2.5-12 7"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19"/><path d="M7.5 10.5V17M7.5 7v.5M11.5 17v-6.5M11.5 13.5c0-1.7 1.3-3 2.75-3s2.75 1.3 2.75 3V17"/></symbol>
+    </svg>
     <a
       href="#main"
-      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-primary focus:text-on-primary focus:px-4 focus:py-2 focus:rounded-sm focus:text-sm focus:font-bold"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-ink focus:text-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold"
       >Skip to content</a
     >
-    <!-- Top Navigation (Shared Component) -->
-    <nav
-      class="fixed top-0 w-full z-50 bg-[#0e0e0e]/60 backdrop-blur-xl no-line tonal-shift bg-[#131313]"
-    >
-      <div
-        class="nav-safe flex justify-between items-center px-8 py-4 max-w-7xl mx-auto"
-      >
-        <div
-          class="text-lg font-bold tracking-tighter text-[#e7e5e5] font-headline"
-        >
-          {{ site.data.profile.name }}
-        </div>
-        <div class="hidden md:flex items-center space-x-8">
-          {% for link in site.data.profile.nav %}
-          <a
-            class="font-['Space_Grotesk'] text-sm tracking-tight text-[#e7e5e5] hover:text-[#007ACC] transition-colors duration-300 inline-flex items-center py-2"
-            href="{{ link.href }}"
-            >{{ link.label }}</a
-          >
+
+    <!-- Navigation -->
+    <nav id="site-nav" class="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-rule">
+      <div class="nav-safe max-w-[1200px] mx-auto h-16 flex items-center justify-between">
+        <a href="#about" class="font-semibold text-ink">{{ p.name }}</a>
+        <div class="hidden md:flex items-center gap-8">
+          {% for link in p.nav %}
+          <a class="nav-link text-[15px] text-sub hover:text-ink transition-colors py-1.5" href="{{ link.href }}">{{ link.label }}</a>
           {% endfor %}
         </div>
-        <a
-          href="{{ site.data.profile.hero.resume_url }}"
-          target="_blank" rel="noopener noreferrer"
-          class="bg-primary text-on-primary px-5 py-2 text-sm font-bold rounded-sm hover:opacity-90 active:scale-95 transition-all inline-block"
-        >
-          {{ site.data.profile.meta.resume_label }}
-        </a>
+        <div class="flex items-center gap-2">
+          <a
+            href="{{ p.hero.resume_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-ink text-white px-4 py-2 text-[15px] font-semibold hover:bg-accent transition-colors"
+            >{{ p.meta.resume_label }}</a
+          >
+          <button
+            type="button"
+            id="nav-toggle"
+            class="md:hidden w-10 h-10 inline-flex items-center justify-center text-ink hover:bg-rule/60 transition-colors"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            aria-label="Open menu"
+          >
+            <svg data-icon="menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+            <svg data-icon="close" class="hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="md:hidden hidden border-t border-rule">
+        <div class="nav-safe flex flex-col py-2">
+          {% for link in p.nav %}
+          <a class="nav-link text-base text-sub hover:text-ink transition-colors py-3 self-start" href="{{ link.href }}">{{ link.label }}</a>
+          {% endfor %}
+        </div>
       </div>
     </nav>
-    <main id="main">
-      <!-- Hero Section -->
-      <section
-        class="min-h-screen flex flex-col justify-center px-8 pt-20 max-w-7xl mx-auto scroll-mt-24"
-        id="about"
-      >
-        <header class="max-w-4xl">
-          <span
-            class="font-label uppercase tracking-[0.3em] text-primary text-xs mb-6 block"
-            >{{ site.data.profile.role }}</span
-          >
-          <h1
-            class="font-headline text-4xl sm:text-5xl md:text-8xl font-bold tracking-tighter leading-none mb-8"
-          >
-            {{ site.data.profile.hero.title_line_1 }} <br />{{
-            site.data.profile.hero.title_line_2 }} <br /><span
-              class="text-outline"
-              >{{ site.data.profile.hero.highlight }}</span
-            >
-          </h1>
-          <p
-            class="font-body text-on-surface-variant text-lg md:text-xl max-w-2xl leading-relaxed mb-12"
-          >
-            {{ site.data.profile.hero.description }}
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <a
-              href="{{ site.data.profile.hero.resume_url }}"
-              target="_blank" rel="noopener noreferrer"
-              class="bg-primary text-on-primary font-bold px-8 py-4 rounded-sm hover:opacity-90 active:scale-[0.98] transition-all flex items-center gap-2"
-            >
-              <span aria-hidden="true" class="material-symbols-outlined text-[20px]"
-                >cloud_download</span
-              >
-              Download Resume
-            </a>
-            <a
-              href="{{ site.data.profile.hero.github_url }}"
-              target="_blank" rel="noopener noreferrer"
-              class="border border-outline-variant text-on-surface font-bold px-8 py-4 rounded-sm hover:bg-surface-container-high active:scale-[0.98] transition-all flex items-center gap-2"
-            >
-              <span aria-hidden="true" class="material-symbols-outlined text-[20px]">code</span>
-              View GitHub
-            </a>
-          </div>
-        </header>
-      </section>
-      <!-- Experience Section (Tonal Shift) -->
-      <section class="py-32 bg-surface-container-low px-8 scroll-mt-24" id="experience">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div class="md:col-span-4">
-            <h2 class="font-headline text-4xl font-bold tracking-tight mb-4">
-              {{ site.data.profile.experience.heading }}
-            </h2>
-            <p class="font-body text-on-surface-variant">
-              {{ site.data.profile.experience.description }}
-            </p>
-          </div>
-          <div class="md:col-span-8 space-y-20 relative">
-            <!-- Vertical Line -->
-            <div
-              class="absolute left-0 top-2 bottom-2 w-px bg-outline-variant/30"
-            ></div>
-            {% for job in site.data.profile.experience.jobs %}
-            <!-- Role -->
-            <div class="relative pl-12">
-              <div
-                class="absolute left-[-4px] top-2 w-2 h-2 rounded-full {% if job.current %}bg-primary shadow-[0_0_10px_rgba(0,122,204,0.5)]{% else %}bg-outline{% endif %}"
-              ></div>
-              <span
-                class="font-label text-xs uppercase tracking-widest {% if job.current %}text-primary{% else %}text-on-surface-variant{% endif %} mb-2 block"
-                >{{ job.year }}</span
-              >
-              <h3 class="font-headline text-2xl font-bold mb-1">
-                {{ job.title }}
-              </h3>
-              <p class="font-body text-on-surface-variant mb-6 flex items-center gap-3">
-                <span class="h-8 bg-white rounded-lg p-1 flex items-center justify-center shadow-sm">
-                  <img src="{{ job.company_logo }}" alt="{{ job.company }} logo" class="h-full w-auto max-w-[120px] object-contain" />
-                </span>
-                {{ job.company }}
-              </p>
-              {% if job.focus %}
-              <div class="flex flex-wrap gap-2 mb-6">
-                {% for item in job.focus %}
-                <span
-                  class="font-label text-[11px] uppercase tracking-wider border border-outline-variant/60 text-on-surface-variant px-2.5 py-1"
-                  >{{ item }}</span
-                >
+
+    <main id="main" class="max-w-[1200px] mx-auto px-6 md:px-12">
+      <!-- Opening -->
+      <section id="about" class="doc scroll-mt-20 pt-12 md:pt-20 pb-20">
+        <aside class="intro-margin order-2 md:order-none font-cond text-[15px] leading-normal text-sub">
+          <dl class="grid grid-cols-2 gap-x-6 gap-y-4 md:block">
+            {% for fact in p.hero.facts %}
+            <div class="md:mt-5 md:first:mt-0{% if forloop.last %} col-span-2{% endif %}">
+              <dt class="font-semibold text-ink">{{ fact.label }}</dt>
+              {% if fact.groups %}
+              <dd class="mt-2 space-y-2.5">
+                {% for g in fact.groups %}<div class="flex gap-3 md:block"><span class="w-[6.25rem] shrink-0 md:block md:w-auto text-ink/70">{{ g.label }}</span><span class="md:block">{% for item in g.items %}<span class="whitespace-nowrap">{{ item }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}</span></div>
                 {% endfor %}
-              </div>
+              </dd>
+              {% else %}
+              <dd class="mt-0.5{% if fact.live %} live-dot{% endif %}">{{ fact.value }}</dd>
               {% endif %}
-              {% for group in job.groups %}
-              {% if group.title != "" %}
-              <h4 class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-8 mb-4">
-                {{ group.title }}
-              </h4>
-              {% endif %}
-              <ul class="space-y-4 font-body text-on-surface/80">
-                {% for bullet in group.bullets %}
-                <li class="flex items-start gap-3">
-                  <span
-                    aria-hidden="true"
-                    class="material-symbols-outlined {% if job.current %}text-primary{% else %}text-outline{% endif %} text-sm mt-1"
-                    >terminal</span
-                  >
-                  <span>{{ bullet }}</span>
-                </li>
-                {% endfor %}
-              </ul>
-              {% endfor %}
             </div>
             {% endfor %}
+          </dl>
+        </aside>
+        <div class="intro">
+          <h1 class="text-[2.5rem] sm:text-5xl lg:text-[3.75rem] leading-[1.04] tracking-[-0.025em] font-semibold mb-7 max-w-[17ch]">{{ p.hero.headline }}</h1>
+          <p class="measure text-lg md:text-[1.3125rem] leading-relaxed text-sub mb-8">{{ p.hero.description }}</p>
+          <div class="flex flex-wrap gap-3 mb-12">
+            <a
+              href="{{ p.hero.resume_url }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-ink text-white font-semibold px-5 py-3 hover:bg-accent transition-colors"
+              >Download resume</a
+            >
+            <a
+              href="{{ p.hero.github_url }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-white border border-rule text-ink font-semibold px-5 py-3 hover:border-ink transition-colors"
+              >View GitHub</a
+            >
           </div>
+          {% if p.hero.note %}
+          <div class="measure border-l-2 border-accent pl-5 py-1">
+            <h2 class="text-[15px] font-semibold text-accent mb-1.5">{{ p.hero.note.title }}</h2>
+            <div class="highlight [&>p]:m-0">{{ p.hero.note.text | markdownify }}</div>
+          </div>
+          {% endif %}
         </div>
       </section>
-      <!-- Skills Grid (Bento Style) -->
-      <section class="py-32 px-8 max-w-7xl mx-auto scroll-mt-24" id="skills">
-        <div
-          class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4"
-        >
-          <h2 class="font-headline text-4xl font-bold tracking-tight">
-            {{ site.data.profile.skills.heading }}
-          </h2>
-          <span
-            class="font-label text-xs uppercase tracking-widest text-on-surface-variant"
-            >{{ site.data.profile.skills.description }}</span
-          >
-        </div>
-        {% assign skill_groups = site.data.profile.skills.items | group_by: "category" %}
-        {% for group in skill_groups %}
-        <h3 class="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-4{% unless forloop.first %} mt-10{% endunless %}">
-          {{ group.name }}
-        </h3>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {% for skill in group.items %}
-          <div
-            class="bg-surface-container p-6 flex flex-col items-center justify-center text-center hover:bg-surface-container-high transition-all group"
-          >
-            <div
-              class="w-12 h-12 flex items-center justify-center mb-4 text-gray-500 group-hover:text-primary transition-colors"
-            >
-              <span aria-hidden="true" class="material-symbols-outlined text-3xl"
-                >{{ skill.icon }}</span
-              >
-            </div>
-            <span
-              class="font-label text-sm font-bold uppercase tracking-tighter"
-              >{{ skill.name }}</span
-            >
+
+      <!-- Experience -->
+      <section id="experience" class="scroll-mt-20 border-t border-rule pt-14 md:pt-20 pb-6">
+        <header class="doc mb-6">
+          <h2 class="text-2xl font-semibold tracking-[-0.01em] leading-tight">{{ p.experience.heading }}</h2>
+          <p class="measure text-sub md:pt-1.5">{{ p.experience.description }}</p>
+        </header>
+        {% for job in p.experience.jobs %}
+        {% assign job_index = forloop.index %}
+        <article class="doc border-t border-rule py-10">
+          <div class="font-cond text-[15px] text-sub">
+            <p class="{% if job.current %}text-accent font-medium live-dot{% endif %} mb-4">{{ job.year }}</p>
+            <span class="inline-flex h-10 w-28 bg-white border border-rule px-2 py-1.5 items-center justify-center">
+              <img src="{{ job.company_logo }}" alt="{{ job.company }} logo" class="max-h-full max-w-full object-contain" />
+            </span>
           </div>
-          {% endfor %}
+          <div class="min-w-0">
+            <h3 class="text-2xl font-semibold tracking-[-0.01em] leading-snug">{{ job.title }}</h3>
+            <p class="text-sub mb-5">{{ job.company }}</p>
+            {% if job.focus %}
+            <ul class="flex flex-wrap gap-1.5 mb-7" aria-label="Focus areas">
+              {% for item in job.focus %}
+              <li class="font-cond text-[14px] text-sub bg-white border border-rule px-2.5 py-0.5">{{ item }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+            {% for group in job.groups %}
+            {% if group.title != "" %}
+            <h4 class="font-semibold mt-7 mb-3">{{ group.title }}</h4>
+            {% endif %}
+            <ul class="measure space-y-2.5 text-ink/85">
+              {% for bullet in group.bullets limit: 3 %}
+              <li class="bullet">{{ bullet }}</li>
+              {% endfor %}
+            </ul>
+            {% assign extra = group.bullets | size | minus: 3 %}
+            {% if extra > 0 %}
+            {% assign more_id = "more-" | append: job_index | append: "-" | append: forloop.index %}
+            <div class="more" id="{{ more_id }}">
+              <div class="more-inner">
+                <ul class="measure space-y-2.5 text-ink/85 pt-2.5">
+                  {% for bullet in group.bullets offset: 3 %}
+                  <li class="bullet">{{ bullet }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            <button
+              type="button"
+              hidden
+              data-more-toggle
+              aria-controls="{{ more_id }}"
+              aria-expanded="false"
+              data-more="Show {{ extra }} more"
+              data-less="Show less"
+              class="mt-3 text-[15px] font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent transition-colors"
+            >
+              Show {{ extra }} more
+            </button>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </article>
+        {% endfor %}
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="scroll-mt-20 border-t border-rule pt-14 md:pt-20 pb-20">
+        <header class="doc mb-10">
+          <h2 class="text-2xl font-semibold tracking-[-0.01em] leading-tight">{{ p.skills.heading }}</h2>
+          <p class="measure text-sub md:pt-1.5">{{ p.skills.description }}</p>
+        </header>
+        {% assign skill_groups = p.skills.items | group_by: "category" %}
+        {% for group in skill_groups %}
+        <div class="doc border-t border-rule py-6">
+          <h3 class="font-cond text-[15px] font-semibold text-ink md:pt-1.5">{{ group.name }}</h3>
+          <ul class="flex flex-wrap gap-2">
+            {% for skill in group.items %}
+            <li>
+              {% if skill.keys %}
+              <button
+                type="button"
+                class="skill-chip inline-flex items-center gap-2 bg-white border border-rule px-3 py-1.5 text-[15px] text-ink hover:border-ink aria-pressed:bg-ink aria-pressed:text-white aria-pressed:border-ink transition-colors"
+                data-keys="{{ skill.keys | join: '|' | downcase }}"
+                aria-pressed="false"
+              >
+                {% if skill.icon %}<svg class="skill-icon" aria-hidden="true"><use href="#i-{{ skill.icon }}"/></svg>{% endif %}{{ skill.name }}
+              </button>
+              {% else %}
+              <span class="inline-flex items-center gap-2 border border-rule px-3 py-1.5 text-[15px] text-sub">{% if skill.icon %}<svg class="skill-icon" aria-hidden="true"><use href="#i-{{ skill.icon }}"/></svg>{% endif %}{{ skill.name }}</span>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
         </div>
         {% endfor %}
       </section>
-      <!-- Projects Section (Asymmetric Grid) -->
-      <section class="py-32 bg-surface-container-low px-8 scroll-mt-24" id="projects">
-        <div class="max-w-7xl mx-auto">
-          <div class="max-w-xl mb-20">
-            <h2 class="font-headline text-4xl font-bold tracking-tight mb-6">
-              {{ site.data.profile.projects.heading }}
-            </h2>
-            <p class="font-body text-on-surface-variant">
-              {{ site.data.profile.projects.description }}
-            </p>
-          </div>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {% for project in site.data.profile.projects.items %}
-            <div
-              class="bg-surface p-10 {% if project.url != "#" %}group hover:translate-y-[-4px] transition-transform duration-500{% endif %} {{ project.mt_class }}"
-            >
-              <div class="flex justify-between items-start mb-12">
-                <span
-                  aria-hidden="true"
-                  class="material-symbols-outlined text-4xl text-primary"
-                  style="font-variation-settings: &quot;FILL&quot; 1"
-                  >{{ project.icon }}</span
-                >
-                <span
-                  class="font-label text-[11px] uppercase tracking-[0.2em] border border-outline-variant px-3 py-1"
-                  >{{ project.category }}</span
-                >
-              </div>
-              <h3 class="font-headline text-3xl font-bold mb-4">
-                {{ project.title }}
-              </h3>
-              <div class="font-body text-on-surface-variant mb-8 leading-relaxed">
-                {{ project.description | markdownify }}
-              </div>
-              <div class="space-y-3 mb-10">
-                <div class="flex flex-wrap gap-2">
-                  {% for sub in project.subindustry %}
-                  <span
-                    class="border border-primary/40 text-primary font-label text-[11px] uppercase tracking-wider px-3 py-1"
-                    >{{ sub }}</span
-                  >
-                  {% endfor %}
-                </div>
-                <div class="flex flex-wrap gap-2">
-                  {% for tag in project.tags %}
-                  <span
-                    class="bg-surface-container text-on-surface-variant text-xs px-3 py-1 font-label group-hover:text-primary transition-colors"
-                    >{{ tag }}</span
-                  >
-                  {% endfor %}
-                </div>
-              </div>
+
+      <!-- Projects -->
+      <section id="projects" class="scroll-mt-20 border-t border-rule pt-14 md:pt-20 pb-6">
+        <header class="doc mb-6">
+          <h2 class="text-2xl font-semibold tracking-[-0.01em] leading-tight">{{ p.projects.heading }}</h2>
+          <div>
+            <p class="measure text-sub md:pt-1.5">{{ p.projects.description }}</p>
+            <div id="project-filter" hidden class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1" aria-live="polite">
+              <p class="text-sub">{{ p.projects.filter_prefix }} <strong id="project-filter-name" class="text-ink font-semibold"></strong></p>
+              <button type="button" id="project-filter-clear" class="text-[15px] font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent">{{ p.projects.filter_clear }}</button>
             </div>
-            {% endfor %}
+          </div>
+        </header>
+        {% for project in p.projects.items %}
+        {% assign match_terms = project.subindustry | concat: project.tags | join: "|" | downcase %}
+        <article class="project doc border-t border-rule py-10" data-match="{{ match_terms }}">
+          <div class="font-cond text-[15px] text-sub">
+            <p class="font-semibold text-ink mb-1">{{ project.category }}</p>
+            {% if project.flow %}
+            <p aria-label="Architecture: {{ project.flow | join: ', then ' }}">{{ project.flow | join: " → " }}</p>
+            {% endif %}
+          </div>
+          <div class="min-w-0">
+            <h3 class="project-title text-2xl font-semibold tracking-[-0.01em] leading-snug mb-4 transition-colors">{{ project.title }}</h3>
+            <div class="measure prose-doc text-ink/85 leading-relaxed mb-6 [&>p]:m-0">{{ project.description | markdownify }}</div>
+            <ul class="flex flex-wrap gap-1.5" aria-label="Technologies">
+              {% for sub in project.subindustry %}
+              <li class="font-cond text-[14px] text-ink bg-white border border-ink/40 px-2.5 py-0.5">{{ sub }}</li>
+              {% endfor %}
+              {% for tag in project.tags %}
+              <li class="font-cond text-[14px] text-sub bg-white border border-rule px-2.5 py-0.5">{{ tag }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </article>
+        {% endfor %}
+      </section>
+
+      <!-- Credentials -->
+      <section id="credentials" class="scroll-mt-20 border-t border-rule pt-14 md:pt-20 pb-6">
+        <header class="doc mb-6">
+          <h2 class="text-2xl font-semibold tracking-[-0.01em] leading-tight">{{ p.credentials.heading }}</h2>
+        </header>
+        {% for edu in p.education.items %}
+        <div class="doc border-t border-rule py-7">
+          <p class="font-cond text-[15px] text-sub">{{ edu.year }}</p>
+          <div>
+            <h3 class="text-xl font-semibold">{{ edu.degree }}</h3>
+            <p class="text-sub">{{ edu.school }}</p>
           </div>
         </div>
-      </section>
-      <!-- Education Section -->
-      <section class="py-32 bg-surface-container-low px-8 scroll-mt-24" id="education">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div class="md:col-span-4">
-            <h2 class="font-headline text-4xl font-bold tracking-tight mb-4">
-              {{ site.data.profile.education.heading }}
-            </h2>
-            <p class="font-body text-on-surface-variant">
-              {{ site.data.profile.education.description }}
-            </p>
-          </div>
-          <div class="md:col-span-8 space-y-8">
-            {% for edu in site.data.profile.education.items %}
+        {% endfor %}
+        {% for cert in p.certifications.items %}
+        <div class="doc border-t border-rule py-7{% if cert.expired %} opacity-60{% endif %}">
+          <p class="font-cond text-[15px] {% if cert.expired %}text-sub{% else %}text-accent font-medium{% endif %}">{{ cert.year }}</p>
+          <div class="flex items-center gap-5">
+            <img src="{{ cert.badge_url }}" alt="" class="w-14 h-14 object-contain shrink-0{% if cert.expired %} grayscale{% endif %}" loading="lazy" />
             <div>
-              <span class="font-label text-xs uppercase tracking-widest text-primary mb-2 block">{{ edu.year }}</span>
-              <h3 class="font-headline text-2xl font-bold mb-1">{{ edu.degree }}</h3>
-              <p class="font-body text-on-surface-variant">{{ edu.school }}</p>
+              <h3 class="text-xl font-semibold">{{ cert.name }}</h3>
+              <p class="text-sub">{{ cert.issuer }}</p>
             </div>
-            {% endfor %}
           </div>
         </div>
+        {% endfor %}
       </section>
-      <!-- Certifications Section -->
-      <section class="py-32 px-8 max-w-7xl mx-auto scroll-mt-24" id="certifications">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-          <h2 class="font-headline text-4xl font-bold tracking-tight">
-            {{ site.data.profile.certifications.heading }}
-          </h2>
-          <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant"
-            >{{ site.data.profile.certifications.description }}</span
-          >
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {% for cert in site.data.profile.certifications.items %}
-          <div class="bg-surface-container p-8 flex flex-col items-center text-center hover:bg-surface-container-high transition-all{% if cert.expired %} opacity-60{% endif %}">
-            <div class="mb-6 {% if cert.expired %}grayscale{% endif %}">
-              <img src="{{ cert.badge_url }}" alt="{{ cert.name }}" class="h-28 w-auto mx-auto" loading="lazy" />
-            </div>
-            <h3 class="font-headline text-lg font-bold mb-2">{{ cert.name }}</h3>
-            <p class="font-body text-on-surface-variant text-sm mb-1">{{ cert.issuer }}</p>
-            <span class="font-label text-xs uppercase tracking-widest {% if cert.expired %}text-secondary-dim{% else %}text-primary{% endif %}">
-              {{ cert.year }}
-            </span>
+
+      <!-- Contact -->
+      <section id="contact" class="doc scroll-mt-20 border-t border-rule pt-14 md:pt-20 pb-24">
+        <h2 class="text-2xl font-semibold tracking-[-0.01em] leading-tight">Contact</h2>
+        <div class="measure">
+          <p class="text-3xl md:text-[2.5rem] leading-tight tracking-[-0.02em] font-semibold mb-5">{{ p.contact.heading }}</p>
+          <p class="text-lg text-sub mb-2">{{ p.contact.availability }}</p>
+          <p class="flex items-center gap-1.5 font-cond text-[15px] text-sub mb-8"><svg class="skill-icon" aria-hidden="true"><use href="#i-pin"/></svg>{{ p.contact.location }}</p>
+          <div class="flex items-stretch gap-2 mb-5">
+            <a
+              href="mailto:{{ p.contact.email }}"
+              class="flex-1 min-w-0 flex items-center gap-4 bg-white border border-rule px-5 py-4 hover:border-ink transition-colors"
+            >
+              <svg class="skill-icon contact-icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              <span class="min-w-0">
+              <span class="block font-cond text-[14px] text-sub">{{ p.contact.email_label }}</span>
+              <span class="block text-lg font-semibold truncate">{{ p.contact.email }}</span>
+              </span>
+            </a>
+            <button
+              type="button"
+              id="copy-email"
+              hidden
+              data-email="{{ p.contact.email }}"
+              data-copy="{{ p.contact.copy_label }}"
+              data-copied="{{ p.contact.copied_label }}"
+              class="shrink-0 w-28 inline-flex items-center justify-center gap-2 bg-white border border-rule text-[15px] font-medium hover:border-ink transition-colors"
+            >
+              <svg class="skill-icon" aria-hidden="true"><use href="#i-copy"/></svg><span data-label>{{ p.contact.copy_label }}</span>
+            </button>
           </div>
-          {% endfor %}
-        </div>
-      </section>
-      <!-- Contact Section -->
-      <section class="py-40 px-8 max-w-7xl mx-auto scroll-mt-24" id="contact">
-        <div class="bg-surface-container p-12 md:p-24 relative overflow-hidden">
-          <!-- Abstract Pattern Decoration -->
-          <div
-            class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"
-          ></div>
-          <div class="relative z-10 max-w-2xl">
-            <h2 class="font-headline text-5xl font-bold tracking-tighter mb-8">
-              {{ site.data.profile.contact.heading }}
-            </h2>
-            <p class="font-body text-on-surface-variant text-lg mb-12">
-              {{ site.data.profile.contact.availability }}
-            </p>
-            <p class="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-6 flex items-center gap-2">
-              <span aria-hidden="true" class="material-symbols-outlined text-base">location_on</span>
-              {{ site.data.profile.contact.location }}
-            </p>
-            <div class="flex flex-col gap-6">
-              <a
-                class="group flex items-center gap-6 p-4 border border-outline-variant/30 hover:bg-surface-variant transition-all"
-                href="mailto:{{ site.data.profile.contact.email }}"
-              >
-                <div
-                  class="w-12 h-12 bg-primary/10 flex items-center justify-center text-primary"
-                >
-                  <span aria-hidden="true" class="material-symbols-outlined">alternate_email</span>
-                </div>
-                <div>
-                  <span
-                    class="block font-label text-[11px] uppercase tracking-widest text-on-surface-variant"
-                    >Email Me</span
-                  >
-                  <span class="block font-headline text-xl"
-                    >{{ site.data.profile.contact.email }}</span
-                  >
-                </div>
-              </a>
-              <div class="flex gap-4">
-                <a
-                  class="bg-surface-container-highest px-6 py-4 flex-1 flex items-center justify-center gap-3 hover:text-primary transition-all"
-                  href="{{ site.data.profile.contact.github_url }}"
-                  target="_blank" rel="noopener noreferrer"
-                >
-                  <span aria-hidden="true" class="material-symbols-outlined">terminal</span>
-                  <span class="font-bold">GitHub</span>
-                </a>
-                <a
-                  class="bg-surface-container-highest px-6 py-4 flex-1 flex items-center justify-center gap-3 hover:text-primary transition-all"
-                  href="{{ site.data.profile.contact.linkedin_url }}"
-                  target="_blank" rel="noopener noreferrer"
-                >
-                  <span aria-hidden="true" class="material-symbols-outlined">badge</span>
-                  <span class="font-bold">LinkedIn</span>
-                </a>
-              </div>
-            </div>
+          <div class="flex gap-6 text-[15px] font-medium">
+            <a class="group inline-flex items-center gap-2" href="{{ p.contact.github_url }}" target="_blank" rel="noopener noreferrer"><svg class="skill-icon text-ink" aria-hidden="true"><use href="#i-git"/></svg><span class="text-accent underline decoration-accent/30 underline-offset-4 group-hover:decoration-accent">GitHub</span></a>
+            <a class="group inline-flex items-center gap-2" href="{{ p.contact.linkedin_url }}" target="_blank" rel="noopener noreferrer"><svg class="skill-icon text-ink" aria-hidden="true"><use href="#i-linkedin"/></svg><span class="text-accent underline decoration-accent/30 underline-offset-4 group-hover:decoration-accent">LinkedIn</span></a>
           </div>
         </div>
       </section>
     </main>
-    <!-- Footer (Shared Component) -->
-    <footer class="w-full border-t border-[#484848]/20 bg-[#0e0e0e]">
-      <div
-        class="flex flex-col md:flex-row justify-between items-center px-12 py-20 w-full"
-      >
-        <div
-          class="text-xs font-black text-[#8a8a8a] font-headline mb-6 md:mb-0"
-        >
-          {{ site.data.profile.footer.brand }}
-        </div>
-        <div
-          class="font-['Manrope'] text-[11px] uppercase tracking-[0.2em] text-[#8a8a8a] text-center md:text-left mb-6 md:mb-0"
-        >
-          {{ site.data.profile.footer.copyright }}
-        </div>
-        <div class="flex gap-8">
-          <a
-            class="font-['Manrope'] text-[11px] uppercase tracking-[0.2em] text-[#8a8a8a] hover:text-[#007ACC] transition-colors inline-flex items-center min-h-[44px]"
-            href="{{ site.data.profile.contact.github_url }}"
-            target="_blank" rel="noopener noreferrer"
-            >GitHub</a
-          >
-          <a
-            class="font-['Manrope'] text-[11px] uppercase tracking-[0.2em] text-[#8a8a8a] hover:text-[#007ACC] transition-colors inline-flex items-center min-h-[44px]"
-            href="{{ site.data.profile.contact.linkedin_url }}"
-            target="_blank" rel="noopener noreferrer"
-            >LinkedIn</a
-          >
+
+    <footer class="border-t border-rule">
+      <div class="nav-safe max-w-[1200px] mx-auto py-8 flex flex-col md:flex-row gap-3 md:items-center md:justify-between text-[15px] text-sub">
+        <p><span class="font-semibold text-ink">{{ p.footer.brand }}</span> <span class="ml-3">{{ p.footer.copyright }}</span></p>
+        <div class="flex gap-6">
+          <a class="hover:text-ink transition-colors inline-flex items-center min-h-[44px]" href="{{ p.contact.github_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="hover:text-ink transition-colors inline-flex items-center min-h-[44px]" href="{{ p.contact.linkedin_url }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </div>
     </footer>
+
+    <script>
+      (function () {
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        /* ---------- Mobile menu ---------- */
+        var toggle = document.getElementById("nav-toggle");
+        var menu = document.getElementById("mobile-menu");
+        function setMenu(open) {
+          menu.classList.toggle("hidden", !open);
+          toggle.setAttribute("aria-expanded", String(open));
+          toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+          toggle.querySelector('[data-icon="menu"]').classList.toggle("hidden", open);
+          toggle.querySelector('[data-icon="close"]').classList.toggle("hidden", !open);
+        }
+        toggle.addEventListener("click", function () {
+          setMenu(menu.classList.contains("hidden"));
+        });
+        menu.addEventListener("click", function (e) {
+          if (e.target.closest("a")) setMenu(false);
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && !menu.classList.contains("hidden")) {
+            setMenu(false);
+            toggle.focus();
+          }
+        });
+
+        /* ---------- Active section in nav ---------- */
+        if ("IntersectionObserver" in window) {
+          var navLinks = document.querySelectorAll(".nav-link");
+          var spy = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                var id = "#" + entry.target.id;
+                navLinks.forEach(function (link) {
+                  if (link.getAttribute("href") === id) link.setAttribute("aria-current", "true");
+                  else link.removeAttribute("aria-current");
+                });
+              });
+            },
+            { rootMargin: "-45% 0px -50% 0px" }
+          );
+          document.querySelectorAll("main > section[id]").forEach(function (s) { spy.observe(s); });
+        }
+
+        /* ---------- Experience: show more ---------- */
+        document.querySelectorAll("[data-more-toggle]").forEach(function (btn) {
+          var panel = document.getElementById(btn.getAttribute("aria-controls"));
+          var inner = panel.firstElementChild;
+          inner.inert = true;
+          btn.hidden = false;
+          btn.addEventListener("click", function () {
+            var open = btn.getAttribute("aria-expanded") !== "true";
+            btn.setAttribute("aria-expanded", String(open));
+            panel.classList.toggle("is-open", open);
+            inner.inert = !open;
+            btn.textContent = open ? btn.dataset.less : btn.dataset.more;
+          });
+        });
+
+        /* ---------- Skills filter projects ---------- */
+        var chips = document.querySelectorAll(".skill-chip");
+        var projects = document.querySelectorAll(".project");
+        var filterBar = document.getElementById("project-filter");
+        var filterName = document.getElementById("project-filter-name");
+        function applyFilter(chip) {
+          chips.forEach(function (c) { c.setAttribute("aria-pressed", String(c === chip)); });
+          if (!chip) {
+            filterBar.hidden = true;
+            projects.forEach(function (p) { p.classList.remove("is-dim", "is-match"); });
+            return;
+          }
+          var keys = chip.dataset.keys.split("|");
+          projects.forEach(function (p) {
+            var hit = keys.some(function (k) { return p.dataset.match.indexOf(k) !== -1; });
+            p.classList.toggle("is-match", hit);
+            p.classList.toggle("is-dim", !hit);
+          });
+          filterName.textContent = chip.textContent.trim();
+          filterBar.hidden = false;
+        }
+        chips.forEach(function (chip) {
+          chip.addEventListener("click", function () {
+            var wasActive = chip.getAttribute("aria-pressed") === "true";
+            applyFilter(wasActive ? null : chip);
+            if (!wasActive) document.getElementById("projects").scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+          });
+        });
+        document.getElementById("project-filter-clear").addEventListener("click", function () {
+          applyFilter(null);
+        });
+
+        /* ---------- Copy email ---------- */
+        var copyBtn = document.getElementById("copy-email");
+        if (navigator.clipboard && window.isSecureContext) {
+          copyBtn.hidden = false;
+          var copyTimer;
+          copyBtn.addEventListener("click", function () {
+            navigator.clipboard.writeText(copyBtn.dataset.email).then(function () {
+              copyBtn.querySelector("[data-label]").textContent = copyBtn.dataset.copied;
+              copyBtn.querySelector("use").setAttribute("href", "#i-check");
+              copyBtn.classList.add("text-accent", "border-accent");
+              clearTimeout(copyTimer);
+              copyTimer = setTimeout(function () {
+                copyBtn.querySelector("[data-label]").textContent = copyBtn.dataset.copy;
+                copyBtn.querySelector("use").setAttribute("href", "#i-copy");
+                copyBtn.classList.remove("text-accent", "border-accent");
+              }, 1600);
+            });
+          });
+        }
+      })();
+    </script>
   </body>
 </html>
