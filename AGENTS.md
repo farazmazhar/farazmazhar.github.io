@@ -34,11 +34,17 @@ hero:
   description: ""
   resume_url: ""
   github_url: ""
-  facts:            # margin column beside the headline
+  facts:            # short margin notes beside the headline (keep to ~3)
     - label: ""
       value: ""
-      groups: []     # optional; instead of value, labelled rows: [{label, items: []}]
+      lines: []      # optional; instead of value, explicit line breaks
+      wide: false    # true → spans both columns on phones
       live: false    # true → accent status dot
+  stack:            # grouped list under the facts in the side column
+    label: ""
+    groups:
+      - label: ""
+        items: []
   note:             # highlighted note under the actions
     title: ""
     text: ""         # supports **bold**, rendered as a highlight
@@ -115,7 +121,7 @@ footer:
   highlights, focus ring). White (`bg-white`) for chips, inputs and secondary buttons
 - **Square corners everywhere.** A global `border-radius: 0` rule enforces it; never add `rounded-*`.
   The only round shape is the small status dot (`.live-dot`)
-- Layout: every section uses the `.doc` grid — a 240px margin column (dates, facts, categories, in
+- Layout: every section uses the `.doc` grid — a 264px margin column (dates, facts, categories, in
   `font-cond`) beside a reading column capped at `.measure` (66ch). Sections and entries are separated by
   `border-t border-rule` hairlines; one paper background throughout, no alternating bands
 - Type: IBM Plex Sans for everything; IBM Plex Sans Condensed (`font-cond`) for margin metadata and chips.

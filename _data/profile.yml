@@ -28,28 +28,29 @@ hero:
   resume_url: "assets/Resume_Faraz_Mazhar.pdf"
   github_url: "https://github.com/farazmazhar"
   # Shown in the left margin column beside the headline.
-  facts:
+  facts:                  # short margin notes beside the headline
     - label: "Role"
-      value: "Managing Consultant, Data & AI Engineering"
-    - label: "Company"
-      value: "Systems Limited"
+      lines: ["Managing Consultant,", "Data & AI Engineering", "at Systems Limited"]
+      wide: true            # spans both columns on phones
     - label: "Based in"
       value: "Lahore, Pakistan"
     - label: "Now"
       value: "Open to senior roles"
       live: true
-    - label: "Stack"
-      groups:             # rendered as label + list rows, agents first
-        - label: "Agents"
-          items: ["LangGraph", "LangChain", "MCP"]
-        - label: "AI platforms"
-          items: ["Azure AI Foundry", "OpenAI-compatible APIs", "Amazon Bedrock"]
-        - label: "Data"
-          items: ["PySpark", "Databricks", "Delta Lake", "Kafka", "Airflow", "Data Factory"]
-        - label: "Backend"
-          items: ["Python", "Django", "GraphQL", "SQL Server"]
-        - label: "Cloud"
-          items: ["AWS", "Azure"]
+  # Grouped stack under the facts in the side column, agents first.
+  stack:
+    label: "Stack"
+    groups:
+      - label: "Agents"
+        items: ["LangGraph", "LangChain", "MCP"]
+      - label: "AI platforms"
+        items: ["Azure AI Foundry", "OpenAI-compatible APIs", "Amazon Bedrock"]
+      - label: "Data"
+        items: ["PySpark", "Databricks", "Delta Lake", "Kafka", "Airflow", "Data Factory"]
+      - label: "Backend"
+        items: ["Python", "Django", "GraphQL", "SQL Server"]
+      - label: "Cloud"
+        items: ["AWS", "Azure"]
   # Highlighted note under the actions. Supports **bold** (rendered as a highlight).
   note:
     title: "Currently building"
